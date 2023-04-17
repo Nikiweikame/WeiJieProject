@@ -1,5 +1,9 @@
-@import './base.css';
+/* @import "./base.css"; */
+* {
+  font-family: "Noto Sans TC", sans-serif;
+}
 
+/* 
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -29,7 +33,7 @@ a,
 
   #app {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     padding: 0 2rem;
   }
-}
+} */
