@@ -35,7 +35,7 @@ import { ref } from "vue";
               data-easein="Power4.easeInOut"
               data-easeout="Power4.easeInOut"
               data-masterspeed="2000"
-              data-thumb="../upload/slider_02.jpg"
+              data-thumb="../src/upload/slider_02.jpg"
               data-rotate="0"
               data-fstransition="fade"
               data-fsmasterspeed="1500"
@@ -89,7 +89,7 @@ import { ref } from "vue";
                 data-paddingleft="[0,0,0,30]"
                 style="z-index: 5; white-space: nowrap; text-transform: left"
               >
-                Innovative solutions
+                崴傑地產開發
               </div>
 
               <!-- LAYER NR.2 -->
@@ -115,9 +115,7 @@ import { ref } from "vue";
                 data-paddingleft="[0,0,0,90]"
                 style="z-index: 6; white-space: nowrap; text-transform: left"
               >
-                We find the best solutions for you, we redesign your home and
-                work places. <br />Discover why over 5,100 home owners trust
-                Initiative.
+                在崴傑，您對家的夢想，由我們守護。
               </div>
 
               <!-- LAYER NR. 3 -->
@@ -156,7 +154,7 @@ import { ref } from "vue";
                   letter-spacing: 1px;
                 "
               >
-                HOOK ME UP
+                認識崴傑
               </div>
             </li>
             <!-- SLIDE  -->
@@ -169,7 +167,7 @@ import { ref } from "vue";
               data-easein="Power4.easeInOut"
               data-easeout="Power4.easeInOut"
               data-masterspeed="2000"
-              data-thumb="../upload/slider_01.jpg"
+              data-thumb="../src/upload/slider_01.jpg"
               data-rotate="0"
               data-fstransition="fade"
               data-fsmasterspeed="1500"

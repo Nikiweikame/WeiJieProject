@@ -30,6 +30,9 @@ import { RouterLink, RouterView } from "vue-router";
   .navbar-nav {
     align-items: center;
   }
+  .navbar-toggler {
+    right: 150px;
+  }
   @media screen and (min-width: 992px) {
     .header__nav {
       position: fixed;
@@ -38,10 +41,10 @@ import { RouterLink, RouterView } from "vue-router";
 }
 </style>
 <template>
-  <header class="header normal-header mobile-menu">
+  <header class="header">
     <div class="container-xl px-0">
       <nav
-        class="navbar navbar-toggleable-md navbar-inverse fixed-top header__nav"
+        class="navbar navbar-toggleable-md fixed-top header__nav"
       >
         <button
           class="navbar-toggler navbar-toggler-right"
@@ -52,7 +55,17 @@ import { RouterLink, RouterView } from "vue-router";
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <path
+                stroke="#4d4c4a"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                d="M4 8h24M4 16h24M4 24h24"
+              />
+            </svg>
+          </span>
         </button>
         <a class="navbar-brand header__logo" href="index.html"
           ><img src="../assets/logo.png" alt="威傑地產開發logo"

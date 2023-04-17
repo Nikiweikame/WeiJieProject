@@ -7,6 +7,7 @@ const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reser
 </script>
 <style lang="scss">
 .footer {
+  position: relative;
   height: 250px;
   background: #373f41;
   padding: 40px 150px 30px;
