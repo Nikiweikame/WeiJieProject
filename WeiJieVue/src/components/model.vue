@@ -1,6 +1,6 @@
 <script setup>
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 </style>
 <template>
   
