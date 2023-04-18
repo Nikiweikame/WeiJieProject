@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import Slide from "../components/Slide.vue";
+
 const sildeDataArray = ref([
   {
     title: "崴傑地產開發0",
@@ -18,8 +19,15 @@ const sildeDataArray = ref([
   // },
 ]);
 const onlyOne = ref(sildeDataArray.value.length === 1);
+// location.reload()
+onMounted(() => {
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "js/revslider.js";
+  document.body.appendChild(script);
+});
 </script>
-<style lang="scss" scoped> 
+<style lang="scss" scoped>
 :deep(.onlyOne .tparrows) {
   display: none;
 }
