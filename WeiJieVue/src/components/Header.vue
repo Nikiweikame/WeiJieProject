@@ -43,9 +43,7 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <header class="header">
     <div class="container-xl px-0">
-      <nav
-        class="navbar navbar-toggleable-md fixed-top header__nav"
-      >
+      <nav class="navbar navbar-toggleable-md fixed-top header__nav">
         <button
           class="navbar-toggler navbar-toggler-right"
           type="button"
@@ -67,9 +65,9 @@ import { RouterLink, RouterView } from "vue-router";
             </svg>
           </span>
         </button>
-        <a class="navbar-brand header__logo" href="index.html"
-          ><img src="../assets/logo.png" alt="威傑地產開發logo"
-        /></a>
+        <RouterLink class="navbar-brand header__logo" to="/"
+          ><img src="../assets/logo_navibar.png" alt="威傑地產開發logo"
+        /></RouterLink>
         <div
           class="collapse navbar-collapse header__navLink"
           id="navbarMbileMenu"
