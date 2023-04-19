@@ -59,7 +59,7 @@ const pageTitleContnet = ref({
 }
 </style>
 <template>
-  <div class="about">
+  <div :class="pageTitleContnet.name">
     <PageTitle :page="pageTitleContnet">
       <p>崴傑地產團隊致力於房地產及房市相關服務，</p>
       <p>提供最新投資資訊與土地開發、物業管家、資產標售、室內設計美學服務，</p>
