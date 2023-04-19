@@ -7,19 +7,18 @@ import { ref } from "vue";
 
 const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reserved.");
 </script>
-<style lang="scss" scoped>
-:deep.footer {
+<style lang="scss">
+.footer {
   position: relative;
   // height: 250px;
   background: #373f41;
-  padding: 40px 150px 30px;
+  padding: 40px 150px 84px;
   &__copyright {
     position: absolute;
     right: 0;
     left: 0;
     bottom: 0px;
     margin: 0;
-
     font-family: "Noto Sans TC";
     font-style: normal;
     font-weight: 500;
@@ -34,18 +33,31 @@ const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reser
     font-weight: 900;
     font-size: 36px;
     line-height: 52px;
-    // text-align: center;
     letter-spacing: 0.2px;
     color: #ffffff;
   }
   &__describe {
     margin-top: 20px;
+    margin-bottom: 0;
     font-weight: 500;
     font-size: 16px;
     line-height: 23px;
   }
   &__name {
     margin: 0 0 0 20px;
+  }
+  .row {
+    > div {
+      margin-bottom: 30px;
+    }
+    > div:last-child {
+      margin-bottom: 00px;
+    }
+  }
+}
+@media screen and (min-width: 992px) {
+  .footer .row > div {
+    margin-bottom: unset;
   }
 }
 </style>
@@ -54,7 +66,7 @@ const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reser
     <div class="container p-0">
       <div class="row g-0">
         <CompanyName class="col-12 col-xl-4 footer__companyName" />
-        <ContactUs class="col-12 col-xl-4" />
+        <ContactUs class="col-12 col-xl-4" :title="'CONTACT US'" :iconColor="'white'"/>
         <LinkGroup class="col-12 col-xl-4" />
       </div>
     </div>
