@@ -9,6 +9,7 @@ const sildeDataArray = ref([
     button: "認識崴傑",
     background: "/src/upload/Rectangle4.png",
     indexID: "rs-3045",
+    path:'/about'
   },
   // {
   //   title: "崴傑地產開發1",
@@ -30,6 +31,9 @@ onMounted(() => {
 <style lang="scss" scoped>
 :deep(.onlyOne .tparrows) {
   display: none;
+}
+.content {
+  padding: 0 16px;
 }
 </style>
 <template>
@@ -55,14 +59,10 @@ onMounted(() => {
           :class="{ onlyOne: onlyOne }"
           data-version="5.4.1"
         >
-          <!-- teststart -->
-
+          <!-- SLIDE  -->
           <ul>
             <Slide v-for="SildeDate in sildeDataArray" :slideDate="SildeDate" />
           </ul>
-
-          <!-- testend -->
-          <!-- SLIDE  -->
         </div>
       </div>
     </div>

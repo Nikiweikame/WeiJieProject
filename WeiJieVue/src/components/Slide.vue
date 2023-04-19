@@ -102,7 +102,8 @@ const AA = defineProps({
     </div>
 
     <!-- LAYER NR. 3 -->
-    <div
+    <RouterLink
+      :to="slideDate.path"
       class="tp-caption NotGeneric-CallToAction rev-btn"
       id="slide-1699-layer-7"
       data-x="['left','left','left','center']"
@@ -138,6 +139,6 @@ const AA = defineProps({
       "
     >
       {{ slideDate.button }}
-    </div>
+    </RouterLink>
   </li>
 </template>
