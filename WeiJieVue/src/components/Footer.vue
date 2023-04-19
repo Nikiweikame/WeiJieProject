@@ -9,24 +9,39 @@ const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reser
 </script>
 <style lang="scss">
 .footer {
-  position: relative;
-  // height: 250px;
-  background: #373f41;
-  padding: 40px 150px 84px;
+  &__info {
+    background: #373f41;
+    padding: 40px 150px 60px;
+    .row {
+      margin-top: -30px;
+      > * {
+        margin-top: 30px;
+      }
+    }
+  }
   &__copyright {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0px;
+    // display: flex;
+    padding: 0 150px;
     margin: 0;
     font-family: "Noto Sans TC";
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
-    line-height: 30px;
+    // height: 30px;
     letter-spacing: 0.2px;
-    text-align: center;
     color: #ffffff;
+    background-color: #913439;
+    align-items: center;
+    justify-content: space-between;
+    span {
+      display: block;
+      line-height: 30px;
+    }
+    a {
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+    }
   }
   &__companyName {
     font-style: normal;
@@ -56,17 +71,26 @@ const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reser
   }
 }
 @media screen and (min-width: 992px) {
-  .footer .row > div {
-    margin-bottom: unset;
+  .footer {
+    .row > div {
+      margin-bottom: unset;
+    }
+    &__copyright {
+      display: flex;
+    }
   }
 }
 </style>
 <template>
   <footer class="footer">
-    <div class="container p-0">
-      <div class="row g-0">
+    <div class="footer__info">
+      <div class="row">
         <CompanyName class="col-12 col-xl-4 footer__companyName" />
-        <ContactUs class="col-12 col-xl-4" :title="'CONTACT US'" :iconColor="'white'"/>
+        <ContactUs
+          class="col-12 col-xl-4"
+          :title="'CONTACT US'"
+          :iconColor="'white'"
+        />
         <LinkGroup class="col-12 col-xl-4" />
       </div>
     </div>
