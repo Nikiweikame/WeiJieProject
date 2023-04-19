@@ -418,7 +418,6 @@ a:focus {
 .header {
     padding: 0;
     position: relative;
-    background-color: #141414 !important;
 }
 
 body.boxed .header {
