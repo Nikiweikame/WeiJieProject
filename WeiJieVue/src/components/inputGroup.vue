@@ -11,11 +11,33 @@ const inputValue = ref({
   budget: "",
   other: "",
 });
+const serveGroup = ref([
+  "設計規劃",
+  "工程管理",
+  "土地開發",
+  "物業管家",
+  "資產標售",
+]);
+const typeGroup = ref([
+  "大樓住宅（有電梯）",
+  "公寓（無電梯）",
+  "辦公空間",
+  "一般商家",
+  "其他",
+]);
 function clickTest() {
   console.log(inputValue.value);
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.select-content {
+  padding-right: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  .form-control {
+    border: 0;
+  }
+}
+</style>
 <template>
   <div>
     <form class="gform">
@@ -44,12 +66,14 @@ function clickTest() {
         />
       </div>
       <div class="form-group">
-        <select class="form-control" v-model="inputValue.serveItem">
-          <option disabled value="">諮詢服務項目（必選）</option>
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-        </select>
+        <div class="select-content">
+          <select class="form-control" v-model="inputValue.serveItem">
+            <option disabled value="">諮詢服務項目（必選）</option>
+            <option v-for="typeValue in serveGroup" :value="typeValue">
+                {{ typeValue }}
+              </option>
+          </select>
+        </div>
       </div>
       <div class="form-group">
         <input
@@ -61,19 +85,23 @@ function clickTest() {
       </div>
       <div class="form-group row">
         <div class="col-6">
-          <select class="form-control" v-model="inputValue.gender">
-            <option disabled value="">性別稱謂</option>
-            <option value="先生">先生</option>
-            <option value="女士">女士</option>
-          </select>
+          <div class="select-content">
+            <select class="form-control" v-model="inputValue.gender">
+              <option disabled value="">性別稱謂</option>
+              <option value="先生">先生</option>
+              <option value="女士">女士</option>
+            </select>
+          </div>
         </div>
         <div class="col-6">
-          <select class="form-control" v-model="inputValue.type">
-            <option disabled value="">空間類型</option>
-            <option value="AA">AA</option>
-            <option value="BB">BB</option>
-            <option value="CC">CC</option>
-          </select>
+          <div class="select-content">
+            <select class="form-control" v-model="inputValue.type">
+              <option disabled value="">空間類型</option>
+              <option v-for="typeValue in typeGroup" :value="typeValue">
+                {{ typeValue }}
+              </option>
+            </select>
+          </div>
         </div>
       </div>
       <div class="form-group last-input">

@@ -58,8 +58,11 @@ const pageTitleContnet = ref({
       margin-bottom: 0;
     }
   }
-  iframe {
-    margin-bottom: -7px;
+  .row.inputGroup {
+    margin-top: -30px;
+  }
+  &__input-group {
+    margin-top: 30px;
   }
   .section {
     padding: 60px 120px;
@@ -86,15 +89,14 @@ const pageTitleContnet = ref({
     line-height: 22px;
     /* identical to box height, or 138% */
     color: #ffffff;
+    margin-bottom: 0;
   }
   &__business-card {
+    margin-top: 30px;
     .widget {
       padding: 0 98px;
-      li {
-        margin: 0 0 17px;
-      }
-      li:last-childx {
-        margin-bottom: 0;
+      li + li {
+        margin-top: 17px;
       }
       svg {
         margin-right: 30px;
@@ -112,14 +114,19 @@ const pageTitleContnet = ref({
       margin-bottom: 20px;
     }
   }
+  iframe {
+    margin-bottom: -7px;
+  }
 }
 </style>
 <template>
   <div class="contact-us">
     <PageTitle01 :page="pageTitleContnet" />
     <section class="section bgwhite">
-      <div class="row">
-        <inputGroup class="col-lg-6 col-md-12 col-sm-12 col-xs-12" />
+      <div class="row inputGroup">
+        <inputGroup
+          class="col-lg-6 col-md-12 col-sm-12 col-xs-12 contact-us__input-group"
+        />
         <!-- end col -->
 
         <ContactUs
