@@ -13,14 +13,4 @@ defineProps({
       <p>{{ page.subtitle }}</p>
     </div>
   </div>
-  <div :class="page.name + '__content contain'">
-    <div class="row">
-      <div class="col-6">
-        <img :src="page.subImg" alt="" />
-      </div>
-      <div class="col-6">
-        <slot />
-      </div>
-    </div>
-  </div>
 </template>

@@ -10,7 +10,7 @@ defineProps({
   <div :class="page.name + '__titleBox'">
     <div :class="page.name + '__titleContent'">
       <h3>{{ page.title }}</h3>
-      <p>{{ page.subtitle }}</p>
+      <p v-if="page.subtitle !== undefined">{{ page.subtitle }}</p>
     </div>
   </div>
 </template>
