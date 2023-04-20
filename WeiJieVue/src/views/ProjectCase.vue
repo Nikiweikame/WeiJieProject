@@ -2,49 +2,29 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import PageTitle01 from "../components/PageTitle01.vue";
 const pageTitleContnet = ref({
-  name: "designCase",
-  title: "設計案例",
-  subtitle: "貼近人們需求，設計最理想的空間",
+  name: "projectCase",
+  title: "工程案例",
+  subtitle: "整合與細膩，各項工程的實績",
 });
 const imgGroup = ref([
   {
-    src: "src/images/designCase01.png",
-    name: "designCase01",
+    src: "src/images/projectCase01.png",
+    name: "projectCase01",
     title: "台南安平陳宅",
   },
   {
-    src: "src/images/designCase02.png",
-    name: "designCase02",
+    src: "src/images/projectCase02.png",
+    name: "projectCase02",
     title: "台南安平陳宅",
   },
   {
-    src: "src/images/designCase03.png",
-    name: "designCase03",
+    src: "src/images/projectCase03.png",
+    name: "projectCase03",
     title: "台南安平陳宅",
   },
   {
-    src: "src/images/designCase04.png",
-    name: "designCase04",
-    title: "台南安平陳宅",
-  },
-  {
-    src: "src/images/designCase05.png",
-    name: "designCase05",
-    title: "台南安平陳宅",
-  },
-  {
-    src: "src/images/designCase06.png",
-    name: "designCase06",
-    title: "台南安平陳宅",
-  },
-  {
-    src: "src/images/designCase07.png",
-    name: "designCase07",
-    title: "台南安平陳宅",
-  },
-  {
-    src: "src/images/designCase08.png",
-    name: "designCase08",
+    src: "src/images/projectCase04.png",
+    name: "projectCase04",
     title: "台南安平陳宅",
   },
 ]);
@@ -57,9 +37,9 @@ onMounted(() => {
 });
 </script>
 <style lang="scss">
-.designCase {
+.projectCase {
   &__titleBox {
-    background-image: url("../images/designCase.png");
+    background-image: url("../images/projectCase.png");
     height: 300px;
     padding: 116px 0 45px;
   }
@@ -98,9 +78,9 @@ onMounted(() => {
   &__img-group {
     padding: 0 15px;
   }
-  .designCase__little-content {
+  .projectCase__little-content {
     // background-color: aquamarine;
-    .designCase__little-sub {
+    .projectCase__little-sub {
       left: 20px;
       font-family: "Noto Sans TC";
       font-style: normal;
@@ -119,20 +99,18 @@ onMounted(() => {
 <template>
   <div :class="pageTitleContnet.name">
     <PageTitle01 :page="pageTitleContnet" />
-    <div class="designCase__content">
+    <div class="projectCase__content">
       <div id="da-thumbs" class="da-thumbs portfolio row">
         <div
-          class="pitem item-w1 item-h1 cat1 designCase__img-group col-12 col-xl-6"
+          class="pitem item-w1 item-h1 cat1 projectCase__img-group col-12 col-xl-6"
           v-for="image in imgGroup"
         >
-          <RouterLink to="/designCase01">
-            <a>
-              <img class="" :src="image.src" :alt="image.name" />
-              <div class="designCase__little-content">
-                <span class="designCase__little-sub">{{ image.title }}</span>
-              </div>
-            </a>
-          </RouterLink>
+          <a>
+            <img class="" :src="image.src" :alt="image.name" />
+            <!-- <div class="projectCase__little-content">
+              <span class="projectCase__little-sub">{{ image.title }}</span>
+            </div> -->
+          </a>
         </div>
       </div>
     </div>
