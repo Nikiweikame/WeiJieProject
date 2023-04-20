@@ -1,5 +1,13 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+import { ref } from "vue";
+const serveGroup = ref([
+  { name: "設計規劃" ,path:'/serve'},
+  { name: "工程管理" ,path:'/manage'},
+  { name: "土地開發" ,path:'/develop'},
+  { name: "物業管家" ,path:'/property'},
+  { name: "資產標售" ,path:'/auction'},
+]);
 </script>
 <style lang="scss">
 .header {
@@ -9,7 +17,7 @@ import { RouterLink, RouterView } from "vue-router";
     padding: 10px 150px;
     justify-content: space-between;
     position: static;
-    height: 70px;
+    // height: 70px;
   }
   &__logo {
     padding: 0;
@@ -44,6 +52,15 @@ import { RouterLink, RouterView } from "vue-router";
     .nav-link {
       padding: 0px 15px;
     }
+  }
+  .dropdown-menu{
+    margin-top: 20px;
+  }
+  .dropdown-toggle::after {
+    content: unset;
+  }
+  .dropdown-item{
+    padding: 4px 57px;
   }
   @media screen and (min-width: 1200px) {
     .header__nav {
@@ -88,16 +105,15 @@ import { RouterLink, RouterView } from "vue-router";
             <li class="nav-item">
               <RouterLink class="nav-link" to="/about">認識崴傑</RouterLink>
             </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link"
+            <li class="nav-item dropdown has-submenu">
+              <RouterLink to="/serve"
+                class="nav-link dropdown-toggle"
                 href="#"
-                role="button"
-                data-bs-toggle="dropdown"
+                id="dropdown03"
+                data-toggle="dropdown"
+                aria-haspopup="true"
                 aria-expanded="false"
-              >
-                服務項目
-                <svg
+                >服務項目<svg
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -120,15 +136,14 @@ import { RouterLink, RouterView } from "vue-router";
                       d="M12 15.375L6 9.375L7.4 7.975L12 12.575L16.6 7.975L18 9.375L12 15.375Z"
                       fill="#4D4C4A"
                     />
-                  </g>
-                </svg>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  </g></svg></RouterLink>
+              <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                <li v-for="element in serveGroup">
+                  <RouterLink :to="element.path">
+                  <a class="dropdown-item" href="single-portfolio.html">{{
+                    element.name
+                  }}</a>
+                  </RouterLink>
                 </li>
               </ul>
             </li>
