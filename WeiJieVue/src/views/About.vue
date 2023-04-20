@@ -7,6 +7,13 @@ const pageTitleContnet = ref({
   subtitle: "在崴傑，您對家的夢想，由我們守護。",
   subImg: "src/images/Aboutsub.png",
 });
+
+const contentText = ref([
+  "崴傑地產團隊致力於房地產及房市相關服務，",
+  "提供最新投資資訊與土地開發、物業管家、資產標售、室內設計美學服務，",
+  "為您的財富把關並保護您的個人資訊。",
+  "在崴傑，您對家的夢想，由我們守護。",
+]);
 </script>
 <style lang="scss">
 .about {
@@ -60,12 +67,16 @@ const pageTitleContnet = ref({
 </style>
 <template>
   <div :class="pageTitleContnet.name">
-    <PageTitle :page="pageTitleContnet">
-      <p>崴傑地產團隊致力於房地產及房市相關服務，</p>
-      <p>提供最新投資資訊與土地開發、物業管家、資產標售、室內設計美學服務，</p>
-      <p>為您的財富把關並保護您的個人資訊。</p>
-
-      <p>在崴傑，您對家的夢想，由我們守護。</p>
-    </PageTitle>
+    <PageTitle :page="pageTitleContnet" />
+    <div :class="pageTitleContnet.name + '__content contain'">
+      <div class="row">
+        <div class="col-6">
+          <img :src="pageTitleContnet.subImg" alt="" />
+        </div>
+        <div class="col-6">
+          <p v-for="text in contentText">{{ text }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
