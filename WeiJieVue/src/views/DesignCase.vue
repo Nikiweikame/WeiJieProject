@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import PageTitle01 from "../components/PageTitle01.vue";
 const pageTitleContnet = ref({
   name: "designCase",
@@ -7,15 +7,54 @@ const pageTitleContnet = ref({
   subtitle: "貼近人們需求，設計最理想的空間",
 });
 const imgGroup = ref([
-  { src: "src/images/designCase01.png", name: "designCase01" },
-  { src: "src/images/designCase02.png", name: "designCase02" },
-  { src: "src/images/designCase03.png", name: "designCase03" },
-  { src: "src/images/designCase04.png", name: "designCase04" },
-  { src: "src/images/designCase05.png", name: "designCase05" },
-  { src: "src/images/designCase06.png", name: "designCase06" },
-  { src: "src/images/designCase07.png", name: "designCase07" },
-  { src: "src/images/designCase08.png", name: "designCase08" },
+  {
+    src: "src/images/designCase01.png",
+    name: "designCase01",
+    title: "台南安平陳宅",
+  },
+  {
+    src: "src/images/designCase02.png",
+    name: "designCase02",
+    title: "台南安平陳宅",
+  },
+  {
+    src: "src/images/designCase03.png",
+    name: "designCase03",
+    title: "台南安平陳宅",
+  },
+  {
+    src: "src/images/designCase04.png",
+    name: "designCase04",
+    title: "台南安平陳宅",
+  },
+  {
+    src: "src/images/designCase05.png",
+    name: "designCase05",
+    title: "台南安平陳宅",
+  },
+  {
+    src: "src/images/designCase06.png",
+    name: "designCase06",
+    title: "台南安平陳宅",
+  },
+  {
+    src: "src/images/designCase07.png",
+    name: "designCase07",
+    title: "台南安平陳宅",
+  },
+  {
+    src: "src/images/designCase08.png",
+    name: "designCase08",
+    title: "台南安平陳宅",
+  },
 ]);
+
+onMounted(() => {
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "js/masonry.js";
+  document.body.appendChild(script);
+});
 </script>
 <style lang="scss">
 .designCase {
@@ -59,19 +98,40 @@ const imgGroup = ref([
   &__img-group {
     padding: 0 15px;
   }
+  .designCase__little-content {
+    // background-color: aquamarine;
+    .designCase__little-sub {
+      left: 20px;
+      font-family: "Noto Sans TC";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 35px;
+      /* identical to box height */
+
+      letter-spacing: 0.2px;
+
+      color: #ffffff;
+    }
+  }
 }
 </style>
 <template>
   <div :class="pageTitleContnet.name">
     <PageTitle01 :page="pageTitleContnet" />
     <div class="designCase__content">
-      <div class="designCase__img-group">
-        <img
+      <div id="da-thumbs" class="da-thumbs portfolio row">
+        <div
+          class="pitem item-w1 item-h1 cat1 designCase__img-group col-12 col-xl-6"
           v-for="image in imgGroup"
-          class="col-6"
-          :src="image.src"
-          :alt="image.name"
-        />
+        >
+          <a>
+            <img class="" :src="image.src" :alt="image.name" />
+            <div class="designCase__little-content">
+              <span class="designCase__little-sub">{{ image.title }}</span>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
