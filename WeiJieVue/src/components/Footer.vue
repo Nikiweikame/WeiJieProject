@@ -11,7 +11,7 @@ const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reser
 .footer {
   &__info {
     background: #373f41;
-    padding: 40px 150px 60px;
+    padding: 60px 16px;
     .row {
       margin-top: -30px;
       > * {
@@ -50,6 +50,9 @@ const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reser
     line-height: 52px;
     letter-spacing: 0.2px;
     color: #ffffff;
+    img {
+      margin-right: 20px;
+    }
   }
   &__describe {
     margin-top: 20px;
@@ -58,20 +61,15 @@ const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reser
     font-size: 16px;
     line-height: 23px;
   }
-  &__name {
-    margin: 0 0 0 20px;
-  }
-  .row {
-    > div {
-      margin-bottom: 30px;
-    }
-    > div:last-child {
-      margin-bottom: 00px;
-    }
-  }
+  // &__name {
+  //   margin: 0 0 0 20px;
+  // }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   .footer {
+    &__info {
+      padding: 40px 150px 60px;
+    }
     .row > div {
       margin-bottom: unset;
     }

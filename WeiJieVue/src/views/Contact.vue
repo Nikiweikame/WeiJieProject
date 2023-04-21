@@ -14,11 +14,8 @@ const pageTitleContnet = ref({
   &__titleBox {
     background-image: url("../images/Contactus.png");
     background-size: 100% 100%;
-    height: 300px;
-    padding: 116px 0 45px;
   }
   &__titleContent {
-    width: 500px;
     height: 119px;
     margin: 0 auto;
     padding: 8px 8px 16px;
@@ -65,7 +62,7 @@ const pageTitleContnet = ref({
     margin-top: 30px;
   }
   .section {
-    padding: 60px 120px;
+    padding: 60px 16px;
   }
   .form-control {
     color: #373f41;
@@ -94,7 +91,8 @@ const pageTitleContnet = ref({
   &__business-card {
     margin-top: 30px;
     .widget {
-      padding: 0 98px;
+      // padding: 0 98px;
+      text-align: center;
       li + li {
         margin-top: 17px;
       }
@@ -118,19 +116,31 @@ const pageTitleContnet = ref({
     margin-bottom: -7px;
   }
 }
+@media screen and (min-width: 1200px) {
+  .contact-us {
+    .section {
+      padding: 60px 120px;
+    }
+
+    &__business-card {
+      .widget {
+        text-align: start;
+        padding: 0 98px;
+      }
+    }
+  }
+}
 </style>
 <template>
   <div class="contact-us">
     <PageTitle01 :page="pageTitleContnet" />
     <section class="section bgwhite">
       <div class="row inputGroup">
-        <inputGroup
-          class="col-lg-6 col-md-12 col-sm-12 col-xs-12 contact-us__input-group"
-        />
+        <inputGroup class="col-12 col-xl-6 contact-us__input-group" />
         <!-- end col -->
 
         <ContactUs
-          class="col-lg-6 col-md-12 col-sm-12 col-xs-12 contact-us__business-card"
+          class="col-12 col-xl-6 contact-us__business-card"
           :title="'崴傑地產開發'"
           :iconColor="'#373F41'"
         />

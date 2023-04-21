@@ -32,11 +32,11 @@ const ServeItem = ref([
 </script>
 <style lang="scss" scoped>
 .contain {
-  padding: 60px 150px;
+  padding: 60px 16px;
 }
 .title {
   margin: -30px auto;
-  width: 652px;
+  // width: 652px;
   padding: 30px;
   p {
     font-family: "Noto Sans TC";
@@ -51,10 +51,12 @@ const ServeItem = ref([
   }
 }
 .content {
-  margin-top: -30px;
+  margin: -30px -16px 0;
+  padding: 0;
   justify-content: center;
 }
-.col-4 {
+.serve-item {
+  padding: 0 16px;
   margin-top: 30px;
   position: relative;
   img {
@@ -83,6 +85,15 @@ const ServeItem = ref([
   );
   color: #ffffff;
 }
+@media screen and (min-width: 1200px) {
+  .contain {
+    padding: 60px 150px;
+  }
+  .content {
+    margin-top: -30px -15px;
+    justify-content: center;
+  }
+}
 </style>
 <template>
   <div class="contain">
@@ -90,7 +101,7 @@ const ServeItem = ref([
       <p v-for="text in title">{{ text }}</p>
     </div>
     <div class="content row">
-      <div class="col-4" v-for="item in ServeItem">
+      <div class="col-12 col-xl-4 serve-item" v-for="item in ServeItem">
         <img :src="item.img" :alt="item.name" />
         <RouterLink class="serve-link" :to="item.path">{{
           item.name

@@ -4,9 +4,9 @@ defineProps({
   serveProcess: {
     type: Object,
   },
-  nameTitle:{
-    type:String
-  }
+  nameTitle: {
+    type: String,
+  },
 });
 
 const stepImg = ref([
@@ -23,29 +23,24 @@ const stepImg = ref([
 </script>
 <style lang="scss" scoped></style>
 <template>
-  <div :class="nameTitle+'__process'">
+  <div :class="nameTitle + '__process'">
     <h4>服務流程</h4>
-    <div class="container">
-      <div class="row">
-        <div
-          class="col-lg-4 col-md-4 col-sm-12"
-          v-for="(element, index) in serveProcess"
-        >
-          <div :class="nameTitle+'__process-step'">
-            <p v-html="element.stepContent"></p>
-            <svg
-              width="67"
-              height="67"
-              viewBox="0 0 67 67"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              v-html="stepImg[index]"
-            ></svg>
-          </div>
-          <p class="serve__ps" v-if="element.ps !== ''">{{ element.ps }}</p>
+    <div class="row">
+      <div class="col-12 col-xl-4" v-for="(element, index) in serveProcess">
+        <div :class="nameTitle + '__process-step'">
+          <p v-html="element.stepContent"></p>
+          <svg
+            width="67"
+            height="67"
+            viewBox="0 0 67 67"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            v-html="stepImg[index]"
+          ></svg>
         </div>
-        <!-- end dmbox -->
+        <p class="serve__ps" v-if="element.ps !== ''">{{ element.ps }}</p>
       </div>
+      <!-- end dmbox -->
     </div>
     <!-- end row -->
   </div>

@@ -40,11 +40,8 @@ onMounted(() => {
 .projectCase {
   &__titleBox {
     background-image: url("../images/projectCase.png");
-    height: 300px;
-    padding: 116px 0 45px;
   }
   &__titleContent {
-    width: 500px;
     height: 119px;
     margin: 0 auto;
     padding: 8px 8px 16px;
@@ -69,10 +66,13 @@ onMounted(() => {
     }
   }
   &__content {
-    padding: 60px 150px 120px;
+    padding: 60px 16px 120px;
     img {
       width: 100%;
       padding: 0;
+    }
+    .row{
+      margin: 0;
     }
   }
   &__img-group {
@@ -93,6 +93,11 @@ onMounted(() => {
 
       color: #ffffff;
     }
+  }
+}
+@media screen and (min-width: 1200px) {
+  .projectCase__content {
+    padding: 60px 150px 120px;
   }
 }
 </style>

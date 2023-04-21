@@ -19,11 +19,8 @@ const contentText = ref([
 .about {
   &__titleBox {
     background-image: url("../images/About.png");
-    height: 300px;
-    padding: 116px 0 45px;
   }
   &__titleContent {
-    width: 500px;
     height: 119px;
     margin: 0 auto;
     padding: 8px 8px 16px;
@@ -48,7 +45,7 @@ const contentText = ref([
     }
   }
   &__content {
-    padding: 50px 150px 200px;
+    padding: 60px 16px 120px;
     img {
       width: 100%;
     }
@@ -63,17 +60,30 @@ const contentText = ref([
       margin-bottom: 0;
     }
   }
+  .row {
+    margin-top: -30px;
+  }
+  &__info {
+    margin-top: 30px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .about {
+    &__content {
+      padding: 50px 150px 200px;
+    }
+  }
 }
 </style>
 <template>
   <div :class="pageTitleContnet.name">
     <PageTitle :page="pageTitleContnet" />
-    <div :class="pageTitleContnet.name + '__content contain'">
+    <div :class="pageTitleContnet.name + '__content'">
       <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-xl-6 about__info">
           <img :src="pageTitleContnet.subImg" alt="" />
         </div>
-        <div class="col-6">
+        <div class="col-12 col-xl-6 about__info">
           <p v-for="text in contentText">{{ text }}</p>
         </div>
       </div>

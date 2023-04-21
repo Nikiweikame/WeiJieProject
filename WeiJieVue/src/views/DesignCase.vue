@@ -60,11 +60,8 @@ onMounted(() => {
 .designCase {
   &__titleBox {
     background-image: url("../images/designCase.png");
-    height: 300px;
-    padding: 116px 0 45px;
   }
   &__titleContent {
-    width: 500px;
     height: 119px;
     margin: 0 auto;
     padding: 8px 8px 16px;
@@ -89,7 +86,10 @@ onMounted(() => {
     }
   }
   &__content {
-    padding: 60px 150px 120px;
+    padding: 60px 16px 120px;
+    .row {
+      margin: 0px;
+    }
     img {
       width: 100%;
       padding: 0;
@@ -100,7 +100,7 @@ onMounted(() => {
   }
   .designCase__little-content {
     // background-color: aquamarine;
-    .designCase__little-sub {
+    .designCase__little-sub a {
       left: 20px;
       font-family: "Noto Sans TC";
       font-style: normal;
@@ -112,6 +112,17 @@ onMounted(() => {
       letter-spacing: 0.2px;
 
       color: #ffffff;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .designCase {
+    &__content {
+      padding: 60px 150px 120px;
     }
   }
 }
@@ -125,14 +136,16 @@ onMounted(() => {
           class="pitem item-w1 item-h1 cat1 designCase__img-group col-12 col-xl-6"
           v-for="image in imgGroup"
         >
-          <RouterLink to="/designCase01">
-            <a>
-              <img class="" :src="image.src" :alt="image.name" />
-              <div class="designCase__little-content">
-                <span class="designCase__little-sub">{{ image.title }}</span>
-              </div>
-            </a>
-          </RouterLink>
+          <a>
+            <img class="" :src="image.src" :alt="image.name" />
+            <div class="designCase__little-content">
+              <span class="designCase__little-sub">
+                <RouterLink to="/designCase01">
+                  {{ image.title }}
+                </RouterLink>
+              </span>
+            </div>
+          </a>
         </div>
       </div>
     </div>

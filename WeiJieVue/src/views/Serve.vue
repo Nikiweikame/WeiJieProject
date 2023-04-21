@@ -63,11 +63,8 @@ const serveProcess = ref([
 .serve {
   &__titleBox {
     background-image: url("../images/About.png");
-    height: 300px;
-    padding: 116px 0 45px;
   }
   &__titleContent {
-    width: 500px;
     height: 119px;
     margin: 0 auto;
     padding: 8px 8px 16px;
@@ -92,7 +89,10 @@ const serveProcess = ref([
     }
   }
   &__content {
-    padding: 60px 150px 110px;
+    padding: 60px 16px 120px;
+    .row {
+      margin-top: -30px;
+    }
     img {
       width: 100%;
     }
@@ -117,11 +117,15 @@ const serveProcess = ref([
       margin-bottom: 10px;
     }
   }
+  &__card {
+    margin-top: 30px;
+    text-align: center;
+  }
   &__process {
-    padding: 60px 150px 120px;
+    padding: 60px 16px 120px;
     h4 {
       width: 145px;
-      margin: 0 auto 60px;
+      margin: 0 auto 30px;
       font-family: "Noto Sans TC";
       font-style: normal;
       font-weight: 500;
@@ -134,7 +138,7 @@ const serveProcess = ref([
     .row {
       margin-top: -60px;
       > div {
-        padding-top: 60px;
+        margin-top: 60px;
       }
     }
     &-content {
@@ -152,6 +156,22 @@ const serveProcess = ref([
   }
   &__ps {
     margin: 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .serve {
+    &__content {
+      padding: 60px 150px 120px;
+    }
+    &__card {
+      text-align: start;
+    }
+    &__process {
+      padding: 60px 150px 120px;
+      h4 {
+        margin-bottom: 60px;
+      }
+    }
   }
 }
 </style>

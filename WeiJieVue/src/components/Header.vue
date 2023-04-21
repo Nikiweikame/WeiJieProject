@@ -2,22 +2,20 @@
 import { RouterLink, RouterView } from "vue-router";
 import { ref } from "vue";
 const serveGroup = ref([
-  { name: "設計規劃" ,path:'/serve'},
-  { name: "工程管理" ,path:'/manage'},
-  { name: "土地開發" ,path:'/develop'},
-  { name: "物業管家" ,path:'/property'},
-  { name: "資產標售" ,path:'/auction'},
+  { name: "設計規劃", path: "/serve" },
+  { name: "工程管理", path: "/manage" },
+  { name: "土地開發", path: "/develop" },
+  { name: "物業管家", path: "/property" },
+  { name: "資產標售", path: "/auction" },
 ]);
 </script>
 <style lang="scss">
 .header {
   &__nav {
-    // position: fixed;
     background-color: #ffffffe6;
-    padding: 10px 150px;
+    padding: 10px 16px;
     justify-content: space-between;
     position: static;
-    // height: 70px;
   }
   &__logo {
     padding: 0;
@@ -26,9 +24,10 @@ const serveGroup = ref([
   }
   .header__navLink {
     width: auto;
+    padding-top: 15px;
   }
   .nav-item .nav-link {
-    padding: 15px;
+    padding: 15px 22px;
     font-weight: 400;
     font-size: 16px;
     line-height: 23px;
@@ -38,33 +37,51 @@ const serveGroup = ref([
     color: #4d4c4a;
   }
   .navbar-nav {
-    align-items: center;
+    align-items: flex-start;
   }
   .navbar-toggler {
-    right: 150px;
+    right: 16px;
+    top: 15px;
     border: 1px solid #707b91;
     border-radius: 4px; // &:focus-visible{
     // }
   }
-  .haeder__social-software {
+  .header__social-software {
     display: flex;
     margin-right: -15px;
+    padding: 0 7px;
     .nav-link {
-      padding: 0px 15px;
+      padding: 15px;
     }
   }
-  .dropdown-menu{
+  .dropdown-menu {
     margin-top: 20px;
   }
   .dropdown-toggle::after {
     content: unset;
   }
-  .dropdown-item{
+  .dropdown-item {
     padding: 4px 57px;
   }
-  @media screen and (min-width: 1200px) {
-    .header__nav {
+}
+
+@media screen and (min-width: 1200px) {
+  .header {
+    &__nav {
       position: fixed;
+      padding: 10px 150px;
+    }
+    .header__navLink {
+      padding-top: 0px;
+    }
+    .header__social-software {
+      padding: 0;
+    }
+    .navbar-nav {
+      align-items: center;
+    }
+    .nav-item .nav-link {
+      padding: 15px;
     }
   }
 }
@@ -106,14 +123,16 @@ const serveGroup = ref([
               <RouterLink class="nav-link" to="/about">認識崴傑</RouterLink>
             </li>
             <li class="nav-item dropdown has-submenu">
-              <RouterLink to="/serve"
+              <a
                 class="nav-link dropdown-toggle"
                 href="#"
                 id="dropdown03"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
-                >服務項目<svg
+              >
+                服務項目
+                <svg
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -136,13 +155,15 @@ const serveGroup = ref([
                       d="M12 15.375L6 9.375L7.4 7.975L12 12.575L16.6 7.975L18 9.375L12 15.375Z"
                       fill="#4D4C4A"
                     />
-                  </g></svg></RouterLink>
+                  </g>
+                </svg>
+              </a>
               <ul class="dropdown-menu" aria-labelledby="dropdown03">
                 <li v-for="element in serveGroup">
                   <RouterLink :to="element.path">
-                  <a class="dropdown-item" href="single-portfolio.html">{{
-                    element.name
-                  }}</a>
+                    <a class="dropdown-item" href="single-portfolio.html">{{
+                      element.name
+                    }}</a>
                   </RouterLink>
                 </li>
               </ul>
@@ -161,7 +182,7 @@ const serveGroup = ref([
               <RouterLink class="nav-link" to="/contact">聯絡我們</RouterLink>
             </li>
             <li class="nav-item">
-              <div class="haeder__social-software">
+              <div class="header__social-software">
                 <a class="nav-link" href="https://www.facebook.com/"
                   ><svg
                     width="34"

@@ -37,6 +37,14 @@ function clickTest() {
     border: 0;
   }
 }
+.btn-container{
+  text-align: center;
+}
+@media screen and (min-width: 1200px) {
+  .btn-container{
+  text-align: start;
+}
+}
 </style>
 <template>
   <div>
@@ -119,7 +127,7 @@ function clickTest() {
           placeholder="其他備註需求"
         ></textarea>
       </div>
-      <div class="form-group">
+      <div class="form-group btn-container">
         <p class="btn btn-primary" @click="clickTest">送出</p>
       </div>
     </form>

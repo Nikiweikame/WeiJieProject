@@ -34,11 +34,8 @@ onMounted(() => {
 .designCase01 {
   &__titleBox {
     background-image: url("../images/designCase.png");
-    height: 300px;
-    padding: 116px 0 45px;
   }
   &__titleContent {
-    width: 500px;
     height: 119px;
     margin: 0 auto;
     padding: 33px;
@@ -59,7 +56,7 @@ onMounted(() => {
     }
   }
   &__content {
-    padding: 60px 150px 120px;
+    padding: 60px 16px 120px;
     img {
       width: 100%;
       padding: 0;
@@ -101,41 +98,46 @@ onMounted(() => {
     }
   }
 }
+@media screen and (min-width: 1200px) {
+  .designCase01 {
+    &__content {
+      padding: 60px 150px 120px;
+    }
+  }
+}
 </style>
 <template>
   <div :class="pageTitleContnet.name">
     <PageTitle01 :page="pageTitleContnet" />
 
-    <section class="section bgwhite">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="work-details">
-              <p v-for="content in textGroup">{{ content }}</p>
-              <ul class="work-information">
-                <li>{{ date }}</li>
-              </ul>
-            </div>
-            <!-- end details -->
+    <section class="section bgwhite designCase01__content">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="work-details">
+            <p v-for="content in textGroup">{{ content }}</p>
+            <ul class="work-information">
+              <li>{{ date }}</li>
+            </ul>
           </div>
-          <!-- end col -->
-
-          <div class="col-md-8">
-            <div class="work-images">
-              <a
-                v-for="img in imgGroup"
-                :href="img.src"
-                data-lightbox="image-1"
-                data-title="Single Portfolio Item"
-                ><img :src="img.src" alt="" class="img-fluid"
-              /></a>
-            </div>
-            <!-- end work-images -->
-          </div>
-          <!-- end col -->
+          <!-- end details -->
         </div>
-        <!-- end row -->
+        <!-- end col -->
+
+        <div class="col-md-8">
+          <div class="work-images">
+            <a
+              v-for="img in imgGroup"
+              :href="img.src"
+              data-lightbox="image-1"
+              data-title="Single Portfolio Item"
+              ><img :src="img.src" alt="" class="img-fluid"
+            /></a>
+          </div>
+          <!-- end work-images -->
+        </div>
+        <!-- end col -->
       </div>
+      <!-- end row -->
     </section>
     <!-- end section -->
   </div>

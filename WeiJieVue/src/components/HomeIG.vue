@@ -39,7 +39,7 @@ const igGroup = ref([
 .home-ig {
   background: url("../images/IGbackground.png");
   background-size: 100% 100%;
-  padding: 60px 345px;
+  padding: 60px 15px;
 }
 .ig-title {
   display: flex;
@@ -62,12 +62,17 @@ const igGroup = ref([
 .ig-content {
   margin: -10px -5px 0;
 }
-.col-3 {
+.ig-group {
   margin-top: 10px;
   padding: 0 5px;
 }
 .ig-img {
   width: 100%;
+}
+@media screen and (min-width: 1200px) {
+  .home-ig {
+    padding: 60px 345px;
+  }
 }
 </style>
 <template>
@@ -88,7 +93,7 @@ const igGroup = ref([
       </svg>
     </p>
     <div class="ig-content row">
-      <a v-for="item in igGroup" class="col-3">
+      <a v-for="item in igGroup" class="col-6 col-xl-3 ig-group">
         <img :src="item.src" alt="" class="ig-img" />
       </a>
     </div>
