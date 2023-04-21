@@ -10,6 +10,12 @@ import DesignCase from "../views/DesignCase.vue";
 import DesignCase01 from "../views/DesignCase01.vue";
 import ProjectCase from "../views/ProjectCase.vue";
 import Contact from "../views/Contact.vue";
+const  scrollBehavior = (to, from, savedPosition) => {
+  if (savedPosition && to.meta.keepAlive) {
+    return savedPosition;
+  }
+  return { left: 0, top:0 };
+}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -77,6 +83,7 @@ const router = createRouter({
       component: Contact,
     },
   ],
+  scrollBehavior,
 });
 
 export default router;
