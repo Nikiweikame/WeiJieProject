@@ -60,15 +60,31 @@ const pageTitleContnet = ref({
   }
   &__input-group {
     margin-top: 30px;
+
+    label {
+      position: absolute;
+      margin: 0;
+      top: 11.5px;
+      right: 10px;
+      font-family: "Noto Sans TC";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      text-align: right;
+      color: #373f41;
+    }
+    .last-input {
+      position: relative;
+    }
   }
   .section {
     padding: 60px 16px;
   }
   .form-control {
     color: #373f41;
-  }
-  .form-control {
     font-family: "Noto Sans TC";
+    position: relative;
     &input::placeholder {
       color: #373f41;
     }

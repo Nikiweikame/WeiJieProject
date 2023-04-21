@@ -1,5 +1,10 @@
 <script setup>
 import { ref } from "vue";
+import { useCounterStore } from "@/stores/counter.js";
+const counterStore = useCounterStore();
+function sendAPI() {
+  counterStore.APIshoot(inputValue.value);
+}
 const inputValue = ref({
   name: "",
   phone: "",
@@ -8,7 +13,7 @@ const inputValue = ref({
   address: "",
   gender: "",
   type: "",
-  budget: "",
+  budget: 0,
   other: "",
 });
 const serveGroup = ref([
@@ -37,13 +42,13 @@ function clickTest() {
     border: 0;
   }
 }
-.btn-container{
+.btn-container {
   text-align: center;
 }
 @media screen and (min-width: 1200px) {
-  .btn-container{
-  text-align: start;
-}
+  .btn-container {
+    text-align: start;
+  }
 }
 </style>
 <template>
@@ -78,8 +83,8 @@ function clickTest() {
           <select class="form-control" v-model="inputValue.serveItem">
             <option disabled value="">諮詢服務項目（必選）</option>
             <option v-for="typeValue in serveGroup" :value="typeValue">
-                {{ typeValue }}
-              </option>
+              {{ typeValue }}
+            </option>
           </select>
         </div>
       </div>
@@ -114,21 +119,23 @@ function clickTest() {
       </div>
       <div class="form-group last-input">
         <input
-          type="number"
-          class="form-control"
-          placeholder="預算"
-          v-model="inputValue.budget"
+        type="number"
+        class="form-control"
+        placeholder="預算"
+        v-model="inputValue.budget"
         />
+        <label for="">萬元</label>
       </div>
       <div class="form-group">
         <textarea
           class="form-control"
           rows="5"
           placeholder="其他備註需求"
+          v-model="inputValue.other"
         ></textarea>
       </div>
       <div class="form-group btn-container">
-        <p class="btn btn-primary" @click="clickTest">送出</p>
+        <p class="btn btn-primary" @click="sendAPI">送出</p>
       </div>
     </form>
   </div>
