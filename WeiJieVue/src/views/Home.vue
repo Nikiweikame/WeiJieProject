@@ -1,23 +1,27 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Slide from "../components/Slide.vue";
+import HomeServe from "../components/HomeServe.vue";
+import HomeIG from "../components/HomeIG.vue";
+import HomeContact from "../components/HomeContact.vue";
 
 const sildeDataArray = ref([
   {
-    title: "崴傑地產開發0",
+    title: "崴傑地產開發",
     subTitle: "在崴傑，您對家的夢想，由我們守護。",
     button: "認識崴傑",
     background: "/src/upload/Rectangle4.png",
     indexID: "rs-3045",
-    path:'/about'
+    path: "/about",
   },
-  // {
-  //   title: "崴傑地產開發1",
-  //   subTitle: "在崴傑，您對家的夢想，由我們守護。",
-  //   button: "認識崴傑",
-  //   background: "/src/upload/Rectangle4.png",
-  //   indexID: "rs-30451",
-  // },
+  {
+    title: "崴傑地產開發1",
+    subTitle: "在崴傑，您對家的夢想，由我們守護。",
+    button: "認識崴傑",
+    background: "/src/upload/Rectangle4.png",
+    indexID: "rs-30451",
+    path: "/about",
+  },
 ]);
 const onlyOne = ref(sildeDataArray.value.length === 1);
 // location.reload()
@@ -26,6 +30,7 @@ onMounted(() => {
   script.type = "text/javascript";
   script.src = "js/revslider.js";
   document.body.appendChild(script);
+  document.querySelectorAll(".RouterLink").forEach((item)=>item.onclick=(e)=>e.stopPropagation())
 });
 </script>
 <style lang="scss" scoped>
@@ -67,4 +72,7 @@ onMounted(() => {
       </div>
     </div>
   </div>
+  <HomeServe />
+  <HomeIG />
+  <HomeContact />
 </template>

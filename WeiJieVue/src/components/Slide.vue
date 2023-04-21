@@ -7,7 +7,24 @@ const AA = defineProps({
 });
 // const CC = ref(AA.slideDate.indexID);
 </script>
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.RouterLink {
+  margin: -15px -40px;
+  padding: 15px 40px;
+  z-index: 9;
+  color: #f7bd1f;
+  white-space: nowrap;
+  outline: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  cursor: pointer;
+  font-family: Oswald;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+</style>
 <template>
   <li
     :data-index="slideDate.indexID"
@@ -102,8 +119,7 @@ const AA = defineProps({
     </div>
 
     <!-- LAYER NR. 3 -->
-    <RouterLink
-      :to="slideDate.path"
+    <div
       class="tp-caption NotGeneric-CallToAction rev-btn"
       id="slide-1699-layer-7"
       data-x="['left','left','left','center']"
@@ -138,7 +154,9 @@ const AA = defineProps({
         letter-spacing: 1px;
       "
     >
-      {{ slideDate.button }}
-    </RouterLink>
+      <RouterLink class="RouterLink" :to="slideDate.path">
+        {{ slideDate.button }}
+      </RouterLink>
+    </div>
   </li>
 </template>
