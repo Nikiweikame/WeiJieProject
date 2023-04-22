@@ -5,12 +5,24 @@ defineProps({
   },
 });
 </script>
-<style lang="scss" scoped>.titleBox {
+<style lang="scss" scoped>
+.titleBox {
   padding: 90px 16px;
   height: 300px;
 }
 .titleContent {
   width: 100%;
+  h3 {
+    font-family: "Noto Sans TC";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 52px;
+    letter-spacing: 0.2px;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+  }
 }
 @media screen and (min-width: 1200px) {
   .titleBox {
@@ -20,10 +32,11 @@ defineProps({
   .titleContent {
     width: 500px;
   }
-}</style>
+}
+</style>
 <template>
-  <div :class="page.name + '__titleBox'" class="titleBox">
-    <div :class="page.name + '__titleContent'" class="titleContent">
+  <div class="titleBox">
+    <div class="titleContent">
       <h3>{{ page.title }}</h3>
       <p v-if="page.subtitle !== undefined">{{ page.subtitle }}</p>
     </div>

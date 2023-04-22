@@ -7,15 +7,17 @@ import Develop from "../views/Develop.vue";
 import Property from "../views/Property.vue";
 import Auction from "../views/Auction.vue";
 import DesignCase from "../views/DesignCase.vue";
-import DesignCase01 from "../views/DesignCase01.vue";
+import DesignCaseSample from "../views/DesignCaseSample.vue";
 import ProjectCase from "../views/ProjectCase.vue";
+import ProjectCaseSample from "../views/ProjectCaseSample.vue";
 import Contact from "../views/Contact.vue";
-const  scrollBehavior = (to, from, savedPosition) => {
+import NotFound404 from "../views/NotFound404.vue";
+const scrollBehavior = (to, from, savedPosition) => {
   if (savedPosition && to.meta.keepAlive) {
     return savedPosition;
   }
-  return { left: 0, top:0 };
-}
+  return { left: 0, top: 0 };
+};
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,13 +36,6 @@ const router = createRouter({
       path: "/serve",
       name: "Serve",
       component: Serve,
-      // children:[
-      //   {
-      //     path: '',
-      //     name: 'design',
-      //     component: Design
-      //   }
-      // ],
     },
     {
       path: "/manage",
@@ -68,9 +63,9 @@ const router = createRouter({
       component: DesignCase,
     },
     {
-      path: "/designCase01",
-      name: "DesignCase01",
-      component: DesignCase01,
+      path: "/designCaseSample",
+      name: "DesignCaseSample",
+      component: DesignCaseSample,
     },
     {
       path: "/projectCase",
@@ -78,9 +73,25 @@ const router = createRouter({
       component: ProjectCase,
     },
     {
+      path: "/projectCaseSample",
+      name: "ProjectCaseSample",
+      component: ProjectCaseSample,
+    },
+    {
       path: "/contact",
       name: "Contact",
       component: Contact,
+    },
+    {
+      path: "/404",
+      name: "404NotFound",
+      component: NotFound404,
+      hidden: true
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: '/404',
+      hidden: true
     },
   ],
   scrollBehavior,

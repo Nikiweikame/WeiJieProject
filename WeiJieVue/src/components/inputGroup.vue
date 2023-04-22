@@ -13,7 +13,7 @@ const inputValue = ref({
   address: "",
   gender: "",
   type: "",
-  budget: 0,
+  budget: "",
   other: "",
 });
 const serveGroup = ref([

@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import PageTitle01 from "../components/PageTitle01.vue";
+import { RouterLink } from "vue-router";
 const pageTitleContnet = ref({
   name: "projectCase",
   title: "工程案例",
@@ -41,7 +42,7 @@ onMounted(() => {
   &__titleBox {
     background-image: url("../images/projectCase.png");
   }
-  &__titleContent {
+  .titleContent {
     height: 119px;
     margin: 0 auto;
     padding: 8px 8px 16px;
@@ -71,7 +72,7 @@ onMounted(() => {
       width: 100%;
       padding: 0;
     }
-    .row{
+    .row {
       margin: 0;
     }
   }
@@ -80,7 +81,7 @@ onMounted(() => {
   }
   .projectCase__little-content {
     // background-color: aquamarine;
-    .projectCase__little-sub {
+    .projectCase__little-sub a {
       left: 20px;
       font-family: "Noto Sans TC";
       font-style: normal;
@@ -92,6 +93,9 @@ onMounted(() => {
       letter-spacing: 0.2px;
 
       color: #ffffff;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }
@@ -102,19 +106,23 @@ onMounted(() => {
 }
 </style>
 <template>
-  <div :class="pageTitleContnet.name">
-    <PageTitle01 :page="pageTitleContnet" />
+  <div class="projectCase">
+    <PageTitle01 class="projectCase__titleBox" :page="pageTitleContnet" />
     <div class="projectCase__content">
       <div id="da-thumbs" class="da-thumbs portfolio row">
         <div
           class="pitem item-w1 item-h1 cat1 projectCase__img-group col-12 col-xl-6"
-          v-for="image in imgGroup"
+          v-for="(image, index) in imgGroup"
         >
           <a>
             <img class="" :src="image.src" :alt="image.name" />
-            <!-- <div class="projectCase__little-content">
-              <span class="projectCase__little-sub">{{ image.title }}</span>
-            </div> -->
+            <div class="projectCase__little-content">
+              <span class="projectCase__little-sub">
+                <RouterLink :to="'/projectCaseSample#' + index">
+                  {{ image.title }}
+                </RouterLink></span
+              >
+            </div>
           </a>
         </div>
       </div>

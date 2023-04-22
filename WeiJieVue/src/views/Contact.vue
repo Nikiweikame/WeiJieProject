@@ -15,7 +15,7 @@ const pageTitleContnet = ref({
     background-image: url("../images/Contactus.png");
     background-size: 100% 100%;
   }
-  &__titleContent {
+  .titleContent {
     height: 119px;
     margin: 0 auto;
     padding: 8px 8px 16px;
@@ -149,7 +149,7 @@ const pageTitleContnet = ref({
 </style>
 <template>
   <div class="contact-us">
-    <PageTitle01 :page="pageTitleContnet" />
+    <PageTitle01 class="contact-us__titleBox" :page="pageTitleContnet" />
     <section class="section bgwhite">
       <div class="row inputGroup">
         <inputGroup class="col-12 col-xl-6 contact-us__input-group" />

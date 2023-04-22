@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import PageTitle from "../components/PageTitle.vue";
-import serverCard from "./serverCard.vue";
+import serverCard from "../components/serverCard.vue";
 const pageTitleContnet = ref({
   name: "serve",
   title: "服務項目",

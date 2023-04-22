@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import PageTitle01 from "../components/PageTitle01.vue";
+import { RouterLink } from "vue-router";
 const pageTitleContnet = ref({
   name: "designCase",
   title: "設計案例",
@@ -61,7 +62,7 @@ onMounted(() => {
   &__titleBox {
     background-image: url("../images/designCase.png");
   }
-  &__titleContent {
+  .titleContent {
     height: 119px;
     margin: 0 auto;
     padding: 8px 8px 16px;
@@ -112,7 +113,7 @@ onMounted(() => {
       letter-spacing: 0.2px;
 
       color: #ffffff;
-      &:hover{
+      &:hover {
         text-decoration: none;
       }
     }
@@ -128,19 +129,19 @@ onMounted(() => {
 }
 </style>
 <template>
-  <div :class="pageTitleContnet.name">
-    <PageTitle01 :page="pageTitleContnet" />
+  <div class="designCase">
+    <PageTitle01 class="designCase__titleBox" :page="pageTitleContnet" />
     <div class="designCase__content">
       <div id="da-thumbs" class="da-thumbs portfolio row">
         <div
           class="pitem item-w1 item-h1 cat1 designCase__img-group col-12 col-xl-6"
-          v-for="image in imgGroup"
+          v-for="(image, index) in imgGroup"
         >
           <a>
             <img class="" :src="image.src" :alt="image.name" />
             <div class="designCase__little-content">
               <span class="designCase__little-sub">
-                <RouterLink to="/designCase01">
+                <RouterLink :to="'/designCaseSample#' + index">
                   {{ image.title }}
                 </RouterLink>
               </span>

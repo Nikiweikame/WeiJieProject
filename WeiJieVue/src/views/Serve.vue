@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import PageTitle from "../components/PageTitle.vue";
 import { RouterLink, RouterView } from "vue-router";
-import serverCard from "./serverCard.vue";
+import serverCard from "../components/serverCard.vue";
 import Step from "../components/step.vue";
 const pageTitleContnet = ref({
   name: "serve",
