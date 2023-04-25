@@ -3,6 +3,8 @@ import { ref } from "vue";
 import PageTitle01 from "../components/PageTitle01.vue";
 import inputGroup from "../components/inputGroup.vue";
 import ContactUs from "../components/ContactUs.vue";
+import { useCounterStore } from "@/stores/counter.js";
+const counterStore = useCounterStore();
 const pageTitleContnet = ref({
   name: "contact-us",
   title: "聯絡我們",
@@ -11,7 +13,7 @@ const pageTitleContnet = ref({
 </script>
 <style lang="scss">
 .contact-us {
-  &__titleBox {
+  .titleBox {
     background-image: url("../images/Contactus.png");
     background-size: 100% 100%;
   }
@@ -132,6 +134,14 @@ const pageTitleContnet = ref({
     margin-bottom: -7px;
   }
 }
+.alert.alert-danger{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 400px;
+}
 @media screen and (min-width: 1200px) {
   .contact-us {
     .section {
@@ -165,7 +175,7 @@ const pageTitleContnet = ref({
       <!-- end row -->
     </section>
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4382.836831744017!2d120.21436297424952!3d23.00337232092076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e771e0b7d21ed%3A0x45f10dbc593d79b7!2z5aW95oOz5bel5L2c5a6k!5e0!3m2!1szh-TW!2stw!4v1681815615431!5m2!1szh-TW!2stw"
+      :src="counterStore.basicInformation.iframeMap"
       width="100%"
       height="400"
       style="border: 0"
