@@ -2,10 +2,12 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Serve from "../views/Serve.vue";
-import Manage from "../views/Manage.vue";
-import Develop from "../views/Develop.vue";
-import Property from "../views/Property.vue";
-import Auction from "../views/Auction.vue";
+import ServeItem from "../views/ServeItem.vue";
+// import Design from "../views/Design.vue";
+// import Manage from "../views/Manage.vue";
+// import Develop from "../views/Develop.vue";
+// import Property from "../views/Property.vue";
+// import Auction from "../views/Auction.vue";
 import DesignCase from "../views/DesignCase.vue";
 import DesignCaseSample from "../views/DesignCaseSample.vue";
 import ProjectCase from "../views/ProjectCase.vue";
@@ -36,26 +38,33 @@ const router = createRouter({
       path: "/serve",
       name: "Serve",
       component: Serve,
-    },
-    {
-      path: "/manage",
-      name: "manage",
-      component: Manage,
-    },
-    {
-      path: "/develop",
-      name: "develop",
-      component: Develop,
-    },
-    {
-      path: "/property",
-      name: "property",
-      component: Property,
-    },
-    {
-      path: "/auction",
-      name: "auction",
-      component: Auction,
+      children: [
+        {
+          path: ":id",
+          name: "design",
+          component: ServeItem,
+        },
+        // {
+        //   path: "manage",
+        //   name: "manage",
+        //   component: Manage,
+        // },
+        // {
+        //   path: "develop",
+        //   name: "develop",
+        //   component: Develop,
+        // },
+        // {
+        //   path: "property",
+        //   name: "property",
+        //   component: Property,
+        // },
+        // {
+        //   path: "auction",
+        //   name: "auction",
+        //   component: Auction,
+        // },
+      ],
     },
     {
       path: "/designCase",
@@ -86,12 +95,12 @@ const router = createRouter({
       path: "/404",
       name: "404NotFound",
       component: NotFound404,
-      hidden: true
+      hidden: true,
     },
     {
       path: "/:pathMatch(.*)*",
-      redirect: '/404',
-      hidden: true
+      redirect: "/404",
+      hidden: true,
     },
   ],
   scrollBehavior,
