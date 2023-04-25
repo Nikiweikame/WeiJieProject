@@ -134,14 +134,6 @@ const pageTitleContnet = ref({
     margin-bottom: -7px;
   }
 }
-.alert.alert-danger{
-  position: absolute;
-  top: 50%;
-  right: 0;
-  left: 0;
-  margin: 0 auto;
-  width: 400px;
-}
 @media screen and (min-width: 1200px) {
   .contact-us {
     .section {
@@ -175,7 +167,8 @@ const pageTitleContnet = ref({
       <!-- end row -->
     </section>
     <iframe
-      :src="counterStore.basicInformation.iframeMap"
+      v-if="counterStore.basicInformation?.iframeMap"
+      :src="counterStore.basicInformation?.iframeMap"
       width="100%"
       height="400"
       style="border: 0"

@@ -51,11 +51,11 @@ svg {
                 :fill="iconColor"
               />
             </svg>
-            <a :href="'mailto:'+counterStore.basicInformation.mail">{{
-              counterStore.basicInformation.mail
+            <a :href="'mailto:' + counterStore.basicInformation?.mail">{{
+              counterStore.basicInformation?.mail
             }}</a>
           </li>
-          <li>
+          <li v-if="counterStore.basicInformation?.phone !== undefined">
             <svg
               width="20"
               height="20"
@@ -68,9 +68,11 @@ svg {
                 :fill="iconColor"
               />
             </svg>
-            <a :href="'tel:'+counterStore.basicInformation.phone">{{ counterStore.basicInformation.phone }}</a>
+            <a :href="'tel:' + counterStore.basicInformation?.phone">{{
+              counterStore.basicInformation?.phone
+            }}</a>
           </li>
-          <li>
+          <li v-if="counterStore.basicInformation?.address !== undefined">
             <svg
               width="20"
               height="20"
@@ -83,7 +85,9 @@ svg {
                 :fill="iconColor"
               />
             </svg>
-            <a :href="counterStore.basicInformation.googleMap">{{ counterStore.basicInformation.address }}</a>
+            <a :href="counterStore.basicInformation?.googleMap">{{
+              counterStore.basicInformation?.address
+            }}</a>
           </li>
         </ul>
       </div>

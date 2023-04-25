@@ -5,31 +5,15 @@ export const useCounterStore = defineStore("counter", () => {
   const token =
     "patkn10QKod0GpMVT.e73c2dafb90ad03a72f37e72b840555c25914191d1bd7f02734274c25768ec5f";
   const table = `appDjTmSMY5jvzqiZ`;
-  async function submitData(content) {
-    validate(content, APIshoot);
-  }
-  function validate(content, callbackfuntion) {
-    if (!content.name) {
-      showAlert("請輸入您的姓名");
-    } else if (!content.phone) {
-      showAlert("請輸入聯絡電話");
-    } else if (!content.serveitem) {
-      showAlert("請選擇諮詢服務項目");
-    } else if (!content.address) {
-      showAlert("請輸入物件地址");
-    } else {
-      callbackfuntion(content);
-    }
-  }
   function showAlert(text) {
-    // 使用 Bootstrap 的 alert 元件來顯示警告彈窗
-    var alertElement = document.createElement("div");
-    alertElement.className = "alert alert-danger";
+    const alertElement = document.querySelector(".alert.alert-danger");
     alertElement.innerHTML = text;
-
     // 將警告彈窗添加到頁面上
-    var containerElement = document.querySelector("body");
-    containerElement.appendChild(alertElement);
+    alertElement.classList.toggle("show");
+    setTimeout(() => {
+      alertElement.classList.toggle("show");
+      alertElement.innerHTML = "";
+    }, 3000);
   }
   function APIshoot(content) {
     const page = "%E8%81%AF%E7%B5%A1%E6%88%91%E5%80%91";
@@ -66,7 +50,7 @@ export const useCounterStore = defineStore("counter", () => {
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
-        showAlert();
+        showAlert(`表單已送出，感謝${content.name}${content.gender}`);
       })
       .catch((error) => console.log("error", error));
   }
@@ -364,7 +348,7 @@ export const useCounterStore = defineStore("counter", () => {
   }
   return {
     APIshoot,
-    submitData,
+    // submitData,
     serveitem,
     basicInformation,
     designSampleArray,
