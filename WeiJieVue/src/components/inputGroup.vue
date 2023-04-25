@@ -45,6 +45,9 @@ function clickTest() {
 .btn-container {
   text-align: center;
 }
+.money-unit {
+  background-color: #fff;
+}
 @media screen and (min-width: 1200px) {
   .btn-container {
     text-align: start;
@@ -53,13 +56,14 @@ function clickTest() {
 </style>
 <template>
   <div>
-    <form class="gform">
+    <form @submit.prevent="sendAPI" class="gform">
       <div class="form-group">
         <input
           type="text"
           class="form-control"
           placeholder="您的姓名（必填）"
           v-model="inputValue.name"
+          required
         />
       </div>
       <div class="form-group">
@@ -68,6 +72,7 @@ function clickTest() {
           class="form-control"
           placeholder="聯絡電話（必填）"
           v-model="inputValue.phone"
+          required
         />
       </div>
       <div class="form-group">
@@ -80,7 +85,7 @@ function clickTest() {
       </div>
       <div class="form-group">
         <div class="select-content">
-          <select class="form-control" v-model="inputValue.serveItem">
+          <select class="form-control" required v-model="inputValue.serveItem">
             <option disabled value="">諮詢服務項目（必選）</option>
             <option v-for="typeValue in serveGroup" :value="typeValue">
               {{ typeValue }}
@@ -92,8 +97,9 @@ function clickTest() {
         <input
           type="text"
           class="form-control"
-          placeholder="物件地址"
+          placeholder="物件地址（必填）"
           v-model="inputValue.address"
+          required
         />
       </div>
       <div class="form-group row">
@@ -119,12 +125,12 @@ function clickTest() {
       </div>
       <div class="form-group last-input">
         <input
-        type="number"
-        class="form-control"
-        placeholder="預算"
-        v-model="inputValue.budget"
+          type="number"
+          class="form-control"
+          placeholder="預算"
+          v-model.number="inputValue.budget"
         />
-        <label for="">萬元</label>
+        <label class="money-unit">萬元</label>
       </div>
       <div class="form-group">
         <textarea
@@ -135,7 +141,7 @@ function clickTest() {
         ></textarea>
       </div>
       <div class="form-group btn-container">
-        <p class="btn btn-primary" @click="sendAPI">送出</p>
+        <button type="submit" class="btn btn-primary">送出</button>
       </div>
     </form>
   </div>
