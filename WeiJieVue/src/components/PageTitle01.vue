@@ -9,6 +9,7 @@ defineProps({
 .titleBox {
   padding: 90px 16px;
   height: 300px;
+  background-size: 100% 100%;
 }
 .titleContent {
   width: 100%;
@@ -27,6 +28,7 @@ defineProps({
 @media screen and (min-width: 1200px) {
   .titleBox {
     padding: 116px 0 45px;
+    background-size: cover;
   }
 
   .titleContent {

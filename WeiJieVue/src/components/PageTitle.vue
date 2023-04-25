@@ -16,6 +16,7 @@ defineProps({
 @media screen and (min-width: 1200px) {
   .titleBox {
     padding: 116px 0 45px;
+    background-size: cover;
   }
 
   .titleContent {
@@ -24,8 +25,8 @@ defineProps({
 }
 </style>
 <template>
-  <div :class="page.name + '__titleBox'" class="titleBox">
-    <div :class="page.name + '__titleContent'" class="titleContent">
+  <div class="titleBox">
+    <div class="titleContent">
       <h3>{{ page.title }}</h3>
       <p>{{ page.subtitle }}</p>
     </div>
