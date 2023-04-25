@@ -1,12 +1,12 @@
 <script setup>
 import { ref } from "vue";
 defineProps({
-  serveProcess: {
+  process: {
     type: Object,
   },
-  nameTitle: {
-    type: String,
-  },
+  // nameTitle: {
+  //   type: String,
+  // },
 });
 
 const stepImg = ref([
@@ -21,13 +21,72 @@ const stepImg = ref([
   `<path d="M33.5 0C37.8993 0 42.2555 0.866503 46.3199 2.55004C50.3843 4.23357 54.0773 6.70116 57.1881 9.81192C60.2988 12.9227 62.7664 16.6157 64.45 20.6801C66.1335 24.7445 67 29.1007 67 33.5C67 42.3848 63.4705 50.9056 57.1881 57.1881C50.9056 63.4705 42.3848 67 33.5 67C29.1007 67 24.7445 66.1335 20.6801 64.45C16.6157 62.7664 12.9227 60.2988 9.81192 57.1881C3.52945 50.9056 0 42.3848 0 33.5C0 24.6152 3.52945 16.0944 9.81192 9.81192C16.0944 3.52945 24.6152 0 33.5 0ZM36.85 50.25C38.6269 50.25 40.3311 49.5441 41.5876 48.2876C42.8441 47.0311 43.55 45.327 43.55 43.55V23.45C43.55 21.673 42.8441 19.9689 41.5876 18.7124C40.3311 17.4559 38.6269 16.75 36.85 16.75H30.15C28.373 16.75 26.6689 17.4559 25.4124 18.7124C24.1559 19.9689 23.45 21.673 23.45 23.45V30.15C23.45 31.927 24.1559 33.6311 25.4124 34.8876C26.6689 36.1441 28.373 36.85 30.15 36.85H36.85V43.55H23.45V50.25H36.85ZM36.85 30.15H30.15V23.45H36.85V30.15Z" fill="#707B91"/>`,
 ]);
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+svg {
+  flex-shrink: 0;
+}
+.process {
+  padding: 60px 16px 120px;
+  h4 {
+    width: 145px;
+    margin: 0 auto 30px;
+    font-family: "Noto Sans TC";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 52px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #373f41;
+  }
+  .row {
+    margin-top: -60px;
+    > div {
+      margin-top: 60px;
+    }
+  }
+  &__step {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    p {
+      margin-bottom: 0;
+      font-family: "Noto Sans TC";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 29px;
+      letter-spacing: 0.2px;
+      color: #373f41;
+    }
+  }
+  &__ps {
+    margin: 0;
+    font-family: "Noto Sans TC";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0.2px;
+
+    color: #373f41;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .process {
+    padding: 60px 150px 120px;
+    h4 {
+      margin-bottom: 60px;
+    }
+  }
+}
+</style>
 <template>
-  <div :class="nameTitle + '__process'">
+  <div class="process">
     <h4>服務流程</h4>
     <div class="row">
-      <div class="col-12 col-xl-4" v-for="(element, index) in serveProcess">
-        <div :class="nameTitle + '__process-step'">
+      <div class="col-12 col-xl-4" v-for="(element, index) in process">
+        <div class="process__step">
           <p v-html="element.stepContent"></p>
           <svg
             width="67"
@@ -38,7 +97,13 @@ const stepImg = ref([
             v-html="stepImg[index]"
           ></svg>
         </div>
-        <p class="serve__ps" v-if="element.ps !== ''">{{ element.ps }}</p>
+        <p
+          class="process__ps"
+          v-if="element.ps !== ''"
+          v-for="text in element.ps"
+        >
+          {{ text }}
+        </p>
       </div>
       <!-- end dmbox -->
     </div>
