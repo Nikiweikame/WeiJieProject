@@ -1,7 +1,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted, watch } from "vue";
 import PageTitle01 from "../components/PageTitle01.vue";
-
+import { useCounterStore } from "@/stores/counter.js";
+const counterStore = useCounterStore();
+// console.log(counterStore)
 const pageTitleContnet = ref([
   {
     title: "台南安平陳宅",
@@ -46,12 +48,12 @@ hashChange();
 window.addEventListener("hashchange", () => {
   hashChange();
 });
+
 function hashChange() {
   const hash = Number(window.location.hash.slice(1));
   if (isNaN(hash)) {
-    index.value = pageTitleContnet.value.length - 1;
-  } else if (pageTitleContnet.value.length <= hash) {
-    index.value = pageTitleContnet.value.length - 1;
+    console.log("123", index.value);
+    return;
   } else {
     index.value = hash;
   }
@@ -59,7 +61,7 @@ function hashChange() {
 </script>
 <style lang="scss">
 .projectCaseSample {
-  &__titleBox {
+  .titleBox {
     background-image: url("../images/projectCase.png");
   }
   .titleContent {
@@ -125,19 +127,27 @@ function hashChange() {
 <template>
   <div class="projectCaseSample">
     <PageTitle01
+      v-if="counterStore.projectSampleArray.length > index"
       class="projectCaseSample__titleBox"
-      :page="pageTitleContnet[index]"
+      :page="counterStore.projectSampleArray[index]"
+    />
+    <PageTitle01
+      v-else
+      class="projectCaseSample__titleBox"
+      :page="{ title: '無此設計案例' }"
     />
 
     <section class="section bgwhite projectCaseSample__content">
       <div class="row">
         <div class="col-md-4">
           <div class="work-details">
-            <p v-for="content in pageTitleContnet[index].textGroup">
+            <p v-for="content in counterStore.projectSampleDescriptionArray[
+                index
+              ]">
               {{ content }}
             </p>
             <ul class="work-information">
-              <li>{{ pageTitleContnet[index].date }}</li>
+              <li>{{ counterStore.projectSampleDateArray[index] }}</li>
             </ul>
           </div>
           <!-- end details -->
@@ -147,7 +157,7 @@ function hashChange() {
         <div class="col-md-8">
           <div class="work-images">
             <a
-              v-for="img in pageTitleContnet[index].imgGroup"
+              v-for="img in counterStore.projectSampleOtherUrlArray[index]"
               :href="img"
               data-lightbox="image-1"
               data-title="Single Portfolio Item"

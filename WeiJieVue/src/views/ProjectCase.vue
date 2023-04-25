@@ -1,7 +1,9 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import PageTitle01 from "../components/PageTitle01.vue";
 import { RouterLink } from "vue-router";
+import { useCounterStore } from "@/stores/counter.js";
+const counterStore = useCounterStore();
 const pageTitleContnet = ref({
   name: "projectCase",
   title: "工程案例",
@@ -30,6 +32,12 @@ const imgGroup = ref([
   },
 ]);
 
+watch(counterStore.projectSampleArray, () => {
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "js/masonry.js";
+  document.body.appendChild(script);
+})
 onMounted(() => {
   const script = document.createElement("script");
   script.type = "text/javascript";
@@ -39,7 +47,7 @@ onMounted(() => {
 </script>
 <style lang="scss">
 .projectCase {
-  &__titleBox {
+  .titleBox {
     background-image: url("../images/projectCase.png");
   }
   .titleContent {
@@ -112,10 +120,10 @@ onMounted(() => {
       <div id="da-thumbs" class="da-thumbs portfolio row">
         <div
           class="pitem item-w1 item-h1 cat1 projectCase__img-group col-12 col-xl-6"
-          v-for="(image, index) in imgGroup"
+          v-for="(image, index) in counterStore.projectSampleArray"
         >
           <a>
-            <img class="" :src="image.src" :alt="image.name" />
+            <img class="" :src="image.imgUrl" :alt="image.name" />
             <div class="projectCase__little-content">
               <span class="projectCase__little-sub">
                 <RouterLink :to="'/projectCaseSample#' + index">
