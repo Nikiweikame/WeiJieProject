@@ -1,4 +1,6 @@
 <script setup>
+import { useCounterStore } from "@/stores/counter.js";
+const counterStore = useCounterStore();
 defineProps({
   title: {
     type: String,
@@ -49,9 +51,9 @@ svg {
                 :fill="iconColor"
               />
             </svg>
-            <a href="mailto: wjrealestate111@gmail.com"
-              >wjrealestate111@gmail.com</a
-            >
+            <a :href="'mailto:'+counterStore.basicInformation.mail">{{
+              counterStore.basicInformation.mail
+            }}</a>
           </li>
           <li>
             <svg
@@ -66,7 +68,7 @@ svg {
                 :fill="iconColor"
               />
             </svg>
-            <a href="tel:5554280940">(06) 200-0000</a>
+            <a :href="'tel:'+counterStore.basicInformation.phone">{{ counterStore.basicInformation.phone }}</a>
           </li>
           <li>
             <svg
@@ -81,7 +83,7 @@ svg {
                 :fill="iconColor"
               />
             </svg>
-            <a href="#">台南市中西區ＸＸＸ街ＸＸＸ號</a>
+            <a :href="counterStore.basicInformation.googleMap">{{ counterStore.basicInformation.address }}</a>
           </li>
         </ul>
       </div>
