@@ -17,10 +17,10 @@ const contentText = ref([
 </script>
 <style lang="scss">
 .about {
-  &__titleBox {
+  .titleBox {
     background-image: url("../images/About.png");
   }
-  &__titleContent {
+  .titleContent {
     height: 119px;
     margin: 0 auto;
     padding: 8px 8px 16px;
@@ -76,9 +76,9 @@ const contentText = ref([
 }
 </style>
 <template>
-  <div :class="pageTitleContnet.name">
+  <div class="about">
     <PageTitle :page="pageTitleContnet" />
-    <div :class="pageTitleContnet.name + '__content'">
+    <div class="about__content">
       <div class="row">
         <div class="col-12 col-xl-6 about__info">
           <img :src="pageTitleContnet.subImg" alt="" />

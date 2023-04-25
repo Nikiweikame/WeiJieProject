@@ -4,6 +4,9 @@ import PageTitle from "../components/PageTitle.vue";
 import { RouterLink, RouterView } from "vue-router";
 import serverCard from "../components/serverCard.vue";
 import Step from "../components/step.vue";
+import { useCounterStore } from "@/stores/counter.js";
+const counterStore = useCounterStore();
+// const stepName=ref("設計流程")
 const pageTitleContnet = ref({
   name: "serve",
   title: "服務項目",
@@ -61,10 +64,10 @@ const serveProcess = ref([
 </script>
 <style lang="scss">
 .serve {
-  &__titleBox {
+  .titleBox {
     background-image: url("../images/About.png");
   }
-  &__titleContent {
+  .titleContent {
     height: 119px;
     margin: 0 auto;
     padding: 8px 8px 16px;
@@ -121,42 +124,6 @@ const serveProcess = ref([
     margin-top: 30px;
     text-align: center;
   }
-  &__process {
-    padding: 60px 16px 120px;
-    h4 {
-      width: 145px;
-      margin: 0 auto 30px;
-      font-family: "Noto Sans TC";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 36px;
-      line-height: 52px;
-      text-align: center;
-      letter-spacing: 0.2px;
-      color: #373f41;
-    }
-    .row {
-      margin-top: -60px;
-      > div {
-        margin-top: 60px;
-      }
-    }
-    &-content {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-    &-step {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      p {
-        margin-bottom: 0;
-      }
-    }
-  }
-  &__ps {
-    margin: 0;
-  }
 }
 @media screen and (min-width: 1200px) {
   .serve {
@@ -166,12 +133,6 @@ const serveProcess = ref([
     &__card {
       text-align: start;
     }
-    &__process {
-      padding: 60px 150px 120px;
-      h4 {
-        margin-bottom: 60px;
-      }
-    }
   }
 }
 </style>
@@ -179,6 +140,6 @@ const serveProcess = ref([
   <div class="serve">
     <PageTitle :page="pageTitleContnet" :nameTitle="pageTitleContnet.name" />
   </div>
-  <serverCard :card="cardContent" />
-  <Step :serveProcess="serveProcess" :nameTitle="pageTitleContnet.name" />
+
+  <RouterView />
 </template>
