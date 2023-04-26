@@ -5,11 +5,40 @@ defineProps({
   },
 });
 </script>
-<style lang="scss">
-
+<style lang="scss" scoped>
+.copyright {
+  // display: flex;
+  padding: 0 16px;
+  margin: 0;
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  // height: 30px;
+  letter-spacing: 0.2px;
+  color: #ffffff;
+  background-color: #913439;
+  align-items: center;
+  justify-content: space-between;
+  span {
+    display: block;
+    line-height: 30px;
+  }
+  a {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .copyright {
+    display: flex;
+    padding: 0 150px;
+  }
+}
 </style>
 <template>
-  <div class="bottom">
+  <div class="copyright">
     <span>{{ copyRightText }}</span>
     <a href="#"
       ><span>回到頂端 Back to top </span>
@@ -34,7 +63,7 @@ defineProps({
         <g mask="url(#mask0_177_1934)">
           <path d="M8.75 17.5L15 11.25L21.25 17.5H8.75Z" fill="white" />
         </g>
-        </svg>
-      </a>
+      </svg>
+    </a>
   </div>
 </template>

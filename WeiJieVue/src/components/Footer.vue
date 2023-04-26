@@ -19,30 +19,6 @@ const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reser
       }
     }
   }
-  &__copyright {
-    // display: flex;
-    padding: 0 16px;
-    margin: 0;
-    font-family: "Noto Sans TC";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    // height: 30px;
-    letter-spacing: 0.2px;
-    color: #ffffff;
-    background-color: #913439;
-    align-items: center;
-    justify-content: space-between;
-    span {
-      display: block;
-      line-height: 30px;
-    }
-    a {
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-    }
-  }
   &__companyName {
     font-style: normal;
     font-weight: 900;
@@ -78,10 +54,6 @@ const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reser
     .row > div {
       margin-bottom: unset;
     }
-    &__copyright {
-      display: flex;
-      padding: 0 150px;
-    }
   }
 }
 </style>
@@ -98,6 +70,6 @@ const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reser
         <LinkGroup class="col-12 col-xl-4" />
       </div>
     </div>
-    <Copyright class="footer__copyright" :copyRightText="copyRightText" />
+    <Copyright :copyRightText="copyRightText" />
   </footer>
 </template>
