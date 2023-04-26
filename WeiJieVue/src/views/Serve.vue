@@ -3,7 +3,6 @@ import { ref } from "vue";
 import PageTitle from "../components/PageTitle.vue";
 import { RouterLink, RouterView } from "vue-router";
 import serverCard from "../components/serverCard.vue";
-import Step from "../components/step.vue";
 import { useCounterStore } from "@/stores/counter.js";
 import PageTitle01 from "../components/PageTitle01.vue";
 const counterStore = useCounterStore();

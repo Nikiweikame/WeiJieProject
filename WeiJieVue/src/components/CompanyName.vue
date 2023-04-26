@@ -1,8 +1,12 @@
-<script setup></script>
+<script setup>
+import { RouterLink, RouterView } from "vue-router";
+</script>
 <style lang="scss"></style>
 <template>
   <div>
-    <img src="../assets/logo.png" alt="logo" /><span class="footer__name">崴傑地產開發</span>
+    <RouterLink to="/">
+      <img src="../images/CompanyName.png" alt="崴傑地產開發" />
+    </RouterLink>
     <p class="footer__describe">在崴傑，您對家的夢想，由我們守護。</p>
   </div>
 </template>

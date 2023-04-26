@@ -2,9 +2,14 @@ import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 
 export const useCounterStore = defineStore("counter", () => {
+  // test page
+  // const token =
+  //   "patkn10QKod0GpMVT.e73c2dafb90ad03a72f37e72b840555c25914191d1bd7f02734274c25768ec5f";
+  // const table = `appDjTmSMY5jvzqiZ`;
+  // my token
   const token =
-    "patkn10QKod0GpMVT.e73c2dafb90ad03a72f37e72b840555c25914191d1bd7f02734274c25768ec5f";
-  const table = `appDjTmSMY5jvzqiZ`;
+    "patPsbteoemPG9Pi0.d71cb57b4e0a2d6d618191fd5167660c74dc8d3569e8f833932b76412ce6072c";
+  const table = `appwxd1kO1icocyoH`;
   function showAlert(text) {
     const alertElement = document.querySelector(".alert.alert-danger");
     alertElement.innerHTML = text;
@@ -24,21 +29,20 @@ export const useCounterStore = defineStore("counter", () => {
       "Cookie",
       "brw=brwNJctjsRJ49Zc6S; AWSALB=C/dMumgQyVsVkVkuMjM5oR5txCsc+PShnFswSr5CXF4p+IlPPuuJC/vj/yB9uGN5eq1BGK2PYpmsjNRg7qDZwA1BoUcmRClb1LL2XP4PWi+uhqBAeGbE3mQrV7h7; AWSALBCORS=C/dMumgQyVsVkVkuMjM5oR5txCsc+PShnFswSr5CXF4p+IlPPuuJC/vj/yB9uGN5eq1BGK2PYpmsjNRg7qDZwA1BoUcmRClb1LL2XP4PWi+uhqBAeGbE3mQrV7h7"
     );
-    console.log(content);
+    // console.log(content);
     var raw = JSON.stringify({
       fields: {
         "您的姓名（必填）": content.name,
         "聯絡電話（必填）": content.phone,
         電子信箱: content.mail,
-        "諮詢服務項目（必選）": content.serveitem,
+        "諮詢服務項目（必選）": content.serveItem,
         "物件地址（必填）": content.address,
         性別稱謂: content.gender,
         空間類型: content.type,
-        預算: content.budget === "" && 0,
+        預算: content.budget !== "" ? content.budget : 0,
         其他備註需求: content.other,
       },
     });
-
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
@@ -49,7 +53,7 @@ export const useCounterStore = defineStore("counter", () => {
     fetch(`https://api.airtable.com/v0/${table}/${page}`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         showAlert(`表單已送出，感謝${content.name}${content.gender}`);
       })
       .catch((error) => console.log("error", error));
@@ -83,7 +87,7 @@ export const useCounterStore = defineStore("counter", () => {
     )
       .then((response) => response.json())
       .then((result) => {
-        result.records.forEach((element) => {
+        result.records?.forEach((element) => {
           if (element.fields["設計規劃"]) {
             serveitem.value.design.push(element.fields["設計規劃"]);
           }
@@ -137,8 +141,9 @@ export const useCounterStore = defineStore("counter", () => {
         basicInformation.value.address = result.records[0].fields["地址"];
         basicInformation.value.googleMap =
           result.records[0].fields["google map"];
-        basicInformation.value.iframeMap =
-          result.records[0].fields["嵌入網址"].split(`"`)[1];
+        basicInformation.value.iframeMap = result.records[0].fields["嵌入網址"]
+          ? result.records[0].fields["嵌入網址"].split(`"`)[1]
+          : "";
       })
       .catch((error) => console.log("error", error));
   }
@@ -282,11 +287,11 @@ export const useCounterStore = defineStore("counter", () => {
     )
       .then((response) => response.json())
       .then((result) => {
-        if (result.records.length !== 0) {
+        if (result.records?.length !== 0) {
           result.records.forEach((item) => {
             const step = {
               stepContent: item.fields["流程"]
-                ? item.fields["流程"].replaceAll("/n", "<br>")
+                ? item.fields["流程"].replaceAll("\n", "<br>")
                 : "",
               ps: item.fields["附註"] ? item.fields["附註"].split("\n") : "",
             };
@@ -346,6 +351,46 @@ export const useCounterStore = defineStore("counter", () => {
       })
       .catch((error) => console.log("error", error));
   }
+  const link = ref({
+    FB: "https://www.facebook.com/profile.php?id=100086936292165",
+    IG: "https://www.instagram.com/wjrealestate111/",
+    Line: "https://lin.ee/oo2iWUk",
+  });
+  const IGDataArray = ref([]);
+
+  IGDataAPI();
+  function IGDataAPI() {
+    const page = "IG%E8%B3%87%E8%A8%8A";
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append(
+      "Cookie",
+      "brw=brwNJctjsRJ49Zc6S; AWSALB=2eMNzt8SkPublfrM3U6W6Z+y/LDSaAk31Esx2cq49vtgM9q8BjOjlhfmosTeJSHE3JwBuFPBO/16kPVpvoAfrTdIGRHa4zhnCy/F0RLKAlUD2lkr7U1C/0pudpfC; AWSALBCORS=2eMNzt8SkPublfrM3U6W6Z+y/LDSaAk31Esx2cq49vtgM9q8BjOjlhfmosTeJSHE3JwBuFPBO/16kPVpvoAfrTdIGRHa4zhnCy/F0RLKAlUD2lkr7U1C/0pudpfC"
+    );
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(
+      `https://api.airtable.com/v0/${table}/${page}?view=Grid%20view`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        result.records.forEach((item) => {
+          const IGDataSample = {
+            name: item.fields["名稱"] ? item.fields["名稱"] : "",
+            src: item.fields["圖片"] ? item.fields["圖片"][0]["url"] : "",
+            link: item.fields["連結"] ? item.fields["連結"] : "",
+          };
+          item.fields["名稱"] && IGDataArray.value.push(IGDataSample);
+        });
+      })
+      .catch((error) => console.log("error", error));
+  }
   return {
     APIshoot,
     // submitData,
@@ -369,5 +414,7 @@ export const useCounterStore = defineStore("counter", () => {
     develop,
     property,
     auction,
+    link,
+    IGDataArray,
   };
 });

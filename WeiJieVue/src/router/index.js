@@ -41,7 +41,7 @@ const router = createRouter({
       children: [
         {
           path: ":id",
-          name: "design",
+          name: "Serveitem",
           component: ServeItem,
         },
         // {

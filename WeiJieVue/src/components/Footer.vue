@@ -26,9 +26,6 @@ const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reser
     line-height: 52px;
     letter-spacing: 0.2px;
     color: #ffffff;
-    img {
-      margin-right: 20px;
-    }
   }
   &__describe {
     margin-top: 20px;

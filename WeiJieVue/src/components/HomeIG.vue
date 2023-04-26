@@ -1,39 +1,7 @@
 <script setup>
 import { ref } from "vue";
-const igGroup = ref([
-  {
-    name: "ig",
-    src: "src/images/IG01.png",
-  },
-  {
-    name: "ig",
-    src: "src/images/IG02.png",
-  },
-  {
-    name: "ig",
-    src: "src/images/IG03.png",
-  },
-  {
-    name: "ig",
-    src: "src/images/IG04.png",
-  },
-  {
-    name: "ig",
-    src: "src/images/IG05.png",
-  },
-  {
-    name: "ig",
-    src: "src/images/IG06.png",
-  },
-  {
-    name: "ig",
-    src: "src/images/IG07.png",
-  },
-  {
-    name: "ig",
-    src: "src/images/IG08.png",
-  },
-]);
+import { useCounterStore } from "@/stores/counter.js";
+const counterStore = useCounterStore();
 </script>
 <style lang="scss" scoped>
 .home-ig {
@@ -48,15 +16,14 @@ const igGroup = ref([
   width: fit-content;
   text-align: center;
   span {
-    white-space: nowrap;
     font-family: "Oswald";
     font-style: normal;
     font-weight: 500;
-    font-size: 36px;
-    line-height: 53px;
+    font-size: 32px;
+    line-height: 47px;
+    display: flex;
     letter-spacing: 0.2px;
     color: #ffffff;
-    margin-right: 10px;
   }
 }
 .ig-content {
@@ -76,8 +43,8 @@ const igGroup = ref([
 }
 </style>
 <template>
-  <div class="home-ig">
-    <p class="ig-title">
+  <div class="home-ig" v-if="counterStore.IGDataArray?.length !== 0">
+    <a class="ig-title" :href="counterStore.link.IG">
       <span>OUR INSTAGRAM</span>
       <svg
         width="40"
@@ -91,10 +58,10 @@ const igGroup = ref([
           fill="white"
         />
       </svg>
-    </p>
+    </a>
     <div class="ig-content row">
-      <a v-for="item in igGroup" class="col-6 col-xl-3 ig-group">
-        <img :src="item.src" alt="" class="ig-img" />
+      <a v-for="item in counterStore.IGDataArray" :href="item.link" class="col-6 col-xl-3 ig-group">
+        <img :src="item.src" :alt="item.name" class="ig-img" />
       </a>
     </div>
   </div>

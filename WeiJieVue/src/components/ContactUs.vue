@@ -43,10 +43,11 @@ defineProps({
 
     color: #ffffff;
   }
+  svg {
+    margin-right: 10px;
+  }
 }
-svg {
-  margin-right: 10px;
-}
+
 </style>
 <template>
   <div>
@@ -105,6 +106,7 @@ svg {
               counterStore.basicInformation?.address
             }}</a>
           </li>
+          <slot />
         </ul>
       </div>
     </div>

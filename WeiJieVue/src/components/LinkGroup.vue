@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import { useCounterStore } from "@/stores/counter.js";
+const counterStore = useCounterStore();
+</script>
 <style lang="scss" scoped>
 .link-group {
   height: 40px;
@@ -13,7 +16,7 @@ a {
 </style>
 <template>
   <div class="link-group">
-    <a href="https://www.facebook.com/"
+    <a :href="counterStore.link.FB" target="_blank"
       ><svg
         width="40"
         height="40"
@@ -27,7 +30,7 @@ a {
         />
       </svg>
     </a>
-    <a href="https://www.instagram.com/"
+    <a :href="counterStore.link.IG" target="_blank"
       ><svg
         width="40"
         height="40"
@@ -41,7 +44,7 @@ a {
         />
       </svg>
     </a>
-    <a href="#"
+    <a :href="counterStore.link.Line" target="_blank"
       ><svg
         width="40"
         height="40"

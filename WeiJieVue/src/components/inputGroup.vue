@@ -3,6 +3,7 @@ import { ref } from "vue";
 import { useCounterStore } from "@/stores/counter.js";
 const counterStore = useCounterStore();
 function sendAPI() {
+  // console.log(inputValue.value)
   counterStore.APIshoot(inputValue.value);
 }
 const inputValue = ref({
@@ -48,7 +49,7 @@ label {
   text-align: right;
   color: #373f41;
 }
-.last-input {
+.budget-unit {
   position: relative;
 }
 .form-control {
@@ -90,6 +91,8 @@ label {
   /* identical to box height, or 138% */
   color: #ffffff;
   margin-bottom: 0;
+  background: #903439;
+  padding: 12px 45px 11px;
 }
 .select-content {
   padding-right: 15px;
@@ -186,7 +189,7 @@ label {
           </div>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group budget-unit">
         <input
           type="number"
           class="form-control"

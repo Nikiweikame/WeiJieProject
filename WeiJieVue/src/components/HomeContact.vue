@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 <style lang="scss" scoped>
 .home-contain {
-  padding: 60px 150px;
+  padding: 60px 32px;
 }
 .promise {
   margin: 0 auto 30px;
@@ -18,7 +18,7 @@ import { RouterLink, RouterView } from "vue-router";
   color: #373f41;
 }
 .btn-primary {
-  padding: 10px 60px;
+  padding: 11px 60px 10px;
   display: block;
   margin: 0 auto;
   width: 200px;
@@ -29,11 +29,12 @@ import { RouterLink, RouterView } from "vue-router";
   line-height: 29px;
   letter-spacing: 0.2px;
   color: #ffffff;
+  background: #903439;
 }
 </style>
 <template>
   <div class="home-contain">
-    <p class="promise">對家的規劃有任何專業需求，歡迎與我們聯繫</p>
+    <p class="promise">對空間的規劃有任何專業需求，歡迎與我們聯繫</p>
     <RouterLink to="/contact" class="btn btn-primary">聯絡崴傑</RouterLink>
   </div>
 </template>

@@ -36,6 +36,7 @@ const AA = defineProps({
     data-easeout="Power4.easeInOut"
     data-masterspeed="2000"
     :data-thumb="slideDate.background"
+    data-height="900px"
     data-rotate="0"
     data-fstransition="fade"
     data-fsmasterspeed="1500"
@@ -62,8 +63,10 @@ const AA = defineProps({
       data-bgfit="cover"
       data-bgrepeat="no-repeat"
       data-bgparallax="10"
+      data-bgheight="900"
       class="rev-slidebg"
       data-no-retina
+      style="height: 900px"
     />
 
     <!-- LAYER NR. 1 -->

@@ -6,7 +6,7 @@ const ServeItem = ref([
   {
     name: "設計規劃",
     img: "src/images/Servesub.png",
-    path: "/serve",
+    path: "/design",
   },
   {
     name: "工程管理",
@@ -103,7 +103,7 @@ const ServeItem = ref([
     <div class="content row">
       <div class="col-12 col-xl-4 serve-item" v-for="item in ServeItem">
         <img :src="item.img" :alt="item.name" />
-        <RouterLink class="serve-link" :to="item.path">{{
+        <RouterLink class="serve-link" :to="'/serve' + item.path">{{
           item.name
         }}</RouterLink>
       </div>

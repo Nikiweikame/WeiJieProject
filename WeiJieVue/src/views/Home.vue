@@ -14,14 +14,14 @@ const sildeDataArray = ref([
     indexID: "rs-3045",
     path: "/about",
   },
-  {
-    title: "崴傑地產開發1",
-    subTitle: "在崴傑，您對家的夢想，由我們守護。",
-    button: "認識崴傑",
-    background: "/src/upload/Rectangle4.png",
-    indexID: "rs-30451",
-    path: "/about",
-  },
+  // {
+  //   title: "崴傑地產開發1",
+  //   subTitle: "在崴傑，您對家的夢想，由我們守護。",
+  //   button: "認識崴傑",
+  //   background: "/src/upload/Rectangle4.png",
+  //   indexID: "rs-30451",
+  //   path: "/about",
+  // },
 ]);
 const onlyOne = ref(sildeDataArray.value.length === 1);
 // location.reload()
