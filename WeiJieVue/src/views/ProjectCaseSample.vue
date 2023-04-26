@@ -59,19 +59,16 @@ function hashChange() {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .projectCaseSample {
-  .titleBox {
+  &__titleBox {
     background-image: url("../images/projectCase.png");
   }
-  .titleContent {
-    height: 119px;
-    margin: 0 auto;
-    padding: 33px;
-    background: rgba(0, 0, 0, 0.2);
-    text-align: center;
-    letter-spacing: 0.2px;
-    font-style: normal;
+  :deep(.titleContent) {
+    padding: 34px 0 33px;
+    h3 {
+      margin-bottom: 0;
+    }
   }
   &__content {
     padding: 60px 16px 120px;
@@ -141,9 +138,11 @@ function hashChange() {
       <div class="row">
         <div class="col-md-4">
           <div class="work-details">
-            <p v-for="content in counterStore.projectSampleDescriptionArray[
+            <p
+              v-for="content in counterStore.projectSampleDescriptionArray[
                 index
-              ]">
+              ]"
+            >
               {{ content }}
             </p>
             <ul class="work-information">

@@ -23,10 +23,26 @@ defineProps({
     content: unset;
   }
 }
-.contact-widget li {
-  margin: 10px 0 0;
-  display: flex;
-  align-items: center;
+.contact-widget {
+  margin-top: 10px;
+  li {
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    & + li {
+      margin-top: 10px;
+    }
+  }
+  a {
+    font-family: "Noto Sans TC";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+
+    color: #ffffff;
+  }
 }
 svg {
   margin-right: 10px;

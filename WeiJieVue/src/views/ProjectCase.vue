@@ -37,7 +37,7 @@ watch(counterStore.projectSampleArray, () => {
   script.type = "text/javascript";
   script.src = "js/masonry.js";
   document.body.appendChild(script);
-})
+});
 onMounted(() => {
   const script = document.createElement("script");
   script.type = "text/javascript";
@@ -47,32 +47,8 @@ onMounted(() => {
 </script>
 <style lang="scss">
 .projectCase {
-  .titleBox {
+  &__titleBox {
     background-image: url("../images/projectCase.png");
-  }
-  .titleContent {
-    height: 119px;
-    margin: 0 auto;
-    padding: 8px 8px 16px;
-    background: rgba(0, 0, 0, 0.2);
-    text-align: center;
-    letter-spacing: 0.2px;
-    font-style: normal;
-    h3 {
-      color: #ffffff;
-      font-family: "Noto Sans TC";
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 36px;
-      line-height: 52px;
-    }
-    p {
-      font-family: "Noto Sans TC";
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 23px;
-      color: #ffffff;
-    }
   }
   &__content {
     padding: 60px 16px 120px;

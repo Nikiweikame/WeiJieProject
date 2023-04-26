@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import PageTitle from "../components/PageTitle.vue";
+import PageTitle01 from "../components/PageTitle01.vue";
 const pageTitleContnet = ref({
   name: "about",
   title: "認識崴傑",
@@ -15,34 +15,10 @@ const contentText = ref([
   "在崴傑，您對家的夢想，由我們守護。",
 ]);
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .about {
-  .titleBox {
+  &__titleBox {
     background-image: url("../images/About.png");
-  }
-  .titleContent {
-    height: 119px;
-    margin: 0 auto;
-    padding: 8px 8px 16px;
-    background: rgba(0, 0, 0, 0.2);
-    text-align: center;
-    letter-spacing: 0.2px;
-    font-style: normal;
-    h3 {
-      color: #ffffff;
-      font-family: "Noto Sans TC";
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 36px;
-      line-height: 52px;
-    }
-    p {
-      font-family: "Noto Sans TC";
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 23px;
-      color: #ffffff;
-    }
   }
   &__content {
     padding: 60px 16px 120px;
@@ -77,7 +53,7 @@ const contentText = ref([
 </style>
 <template>
   <div class="about">
-    <PageTitle :page="pageTitleContnet" />
+    <PageTitle01 class="about__titleBox" :page="pageTitleContnet" />
     <div class="about__content">
       <div class="row">
         <div class="col-12 col-xl-6 about__info">

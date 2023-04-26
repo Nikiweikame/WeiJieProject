@@ -58,21 +58,16 @@ function hashChange() {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .designCaseSample {
   &__titleBox {
     background-image: url("../images/designCase.png");
   }
-  .titleContent {
-    height: 119px;
-    margin: 0 auto;
-    padding: 33px;
-    background: rgba(0, 0, 0, 0.2);
-    text-align: center;
-    letter-spacing: 0.2px;
-    font-style: normal;
-    // h3 {
-    // }
+  :deep(.titleContent) {
+    padding: 34px 0 33px;
+    h3 {
+      margin-bottom: 0;
+    }
   }
   &__content {
     padding: 60px 16px 120px;

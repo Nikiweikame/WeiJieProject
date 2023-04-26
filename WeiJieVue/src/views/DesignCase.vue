@@ -9,54 +9,12 @@ const pageTitleContnet = ref({
   title: "設計案例",
   subtitle: "貼近人們需求，設計最理想的空間",
 });
-// const imgGroup = ref([
-//   {
-//     src: "src/images/designCase01.png",
-//     name: "designCase01",
-//     title: "台南安平陳宅",
-//   },
-//   {
-//     src: "src/images/designCase02.png",
-//     name: "designCase02",
-//     title: "台南安平陳宅",
-//   },
-//   {
-//     src: "src/images/designCase03.png",
-//     name: "designCase03",
-//     title: "台南安平陳宅",
-//   },
-//   {
-//     src: "src/images/designCase04.png",
-//     name: "designCase04",
-//     title: "台南安平陳宅",
-//   },
-//   {
-//     src: "src/images/designCase05.png",
-//     name: "designCase05",
-//     title: "台南安平陳宅",
-//   },
-//   {
-//     src: "src/images/designCase06.png",
-//     name: "designCase06",
-//     title: "台南安平陳宅",
-//   },
-//   {
-//     src: "src/images/designCase07.png",
-//     name: "designCase07",
-//     title: "台南安平陳宅",
-//   },
-//   {
-//     src: "src/images/designCase08.png",
-//     name: "designCase08",
-//     title: "台南安平陳宅",
-//   },
-// ]);
 watch(counterStore.designSampleArray, () => {
   const script = document.createElement("script");
   script.type = "text/javascript";
   script.src = "js/masonry.js";
   document.body.appendChild(script);
-})
+});
 onMounted(() => {
   const script = document.createElement("script");
   script.type = "text/javascript";

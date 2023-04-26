@@ -11,35 +11,13 @@ const pageTitleContnet = ref({
   subtitle: "對家的規劃有任何專業需求，歡迎與我們聯繫",
 });
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
+// .contact-us__titleBox {
+//   background-image: url("../images/Contactus.png");
+// }
 .contact-us {
-  .titleBox {
+  &__titleBox {
     background-image: url("../images/Contactus.png");
-    background-size: 100% 100%;
-  }
-  .titleContent {
-    height: 119px;
-    margin: 0 auto;
-    padding: 8px 8px 16px;
-    background: rgba(0, 0, 0, 0.2);
-    text-align: center;
-    letter-spacing: 0.2px;
-    font-style: normal;
-    h3 {
-      color: #ffffff;
-      font-family: "Noto Sans TC";
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 36px;
-      line-height: 52px;
-    }
-    p {
-      font-family: "Noto Sans TC";
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 23px;
-      color: #ffffff;
-    }
   }
   &__content {
     padding: 50px 150px 200px;
@@ -62,53 +40,13 @@ const pageTitleContnet = ref({
   }
   &__input-group {
     margin-top: 30px;
-
-    label {
-      position: absolute;
-      margin: 0;
-      top: 11.5px;
-      right: 10px;
-      font-family: "Noto Sans TC";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 22px;
-      text-align: right;
-      color: #373f41;
-    }
-    .last-input {
-      position: relative;
-    }
   }
   .section {
     padding: 60px 16px;
   }
-  .form-control {
-    color: #373f41;
-    font-family: "Noto Sans TC";
-    position: relative;
-    &input::placeholder {
-      color: #373f41;
-    }
-    &.last-input {
-      margin-bottom: 34px;
-    }
-  }
-  .btn {
-    width: 165px;
-
-    font-family: "Noto Sans TC";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    /* identical to box height, or 138% */
-    color: #ffffff;
-    margin-bottom: 0;
-  }
   &__business-card {
     margin-top: 30px;
-    .widget {
+    :deep(.widget) {
       // padding: 0 98px;
       text-align: center;
       li + li {
@@ -118,16 +56,29 @@ const pageTitleContnet = ref({
         margin-right: 30px;
       }
     }
-    .widget-title {
+    :deep(.widget-title) {
       font-family: "Noto Sans TC";
       font-style: normal;
       font-weight: 700;
       font-size: 24px;
       line-height: 35px;
-      align-items: center;
       letter-spacing: 0.2px;
       color: #373f41;
       margin-bottom: 20px;
+    }
+    :deep(.contact-widget) {
+      a {
+        font-family: "Noto Sans TC";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 29px;
+        /* identical to box height */
+
+        letter-spacing: 0.2px;
+
+        color: #373f41;
+      }
     }
   }
   iframe {
