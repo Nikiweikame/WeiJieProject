@@ -35,11 +35,70 @@ function clickTest() {
 }
 </script>
 <style lang="scss" scoped>
+label {
+  position: absolute;
+  margin: 0;
+  top: 11.5px;
+  right: 10px;
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: right;
+  color: #373f41;
+}
+.last-input {
+  position: relative;
+}
+.form-control {
+  font-family: "Noto Sans TC";
+  position: relative;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 12px;
+  border: 1px solid #d9d9d9;
+  &input::placeholder {
+    color: #373f41;
+  }
+}
+.gform {
+  margin-top: -20px;
+  textarea.form-control {
+    height: 150px;
+  }
+}
+.form-group {
+  margin: 20px 0 0;
+  &.row {
+    margin: 0px -15px;
+    > div {
+      margin-top: 20px;
+    }
+  }
+}
+.btn {
+  width: 165px;
+
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height, or 138% */
+  color: #ffffff;
+  margin-bottom: 0;
+}
 .select-content {
   padding-right: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  .form-control {
+  border: 1px solid #d9d9d9;
+  height: 45px;
+  select.form-control {
     border: 0;
+    height: 19px;
+    height: -webkit-fill-available;
   }
 }
 .btn-container {
@@ -51,6 +110,10 @@ function clickTest() {
 @media screen and (min-width: 1200px) {
   .btn-container {
     text-align: start;
+  }
+
+  .input-textarea {
+    margin-top: 34px;
   }
 }
 </style>
@@ -103,7 +166,7 @@ function clickTest() {
         />
       </div>
       <div class="form-group row">
-        <div class="col-6">
+        <div class="col-12 col-xl-6">
           <div class="select-content">
             <select class="form-control" v-model="inputValue.gender">
               <option disabled value="">性別稱謂</option>
@@ -112,7 +175,7 @@ function clickTest() {
             </select>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-xl-6">
           <div class="select-content">
             <select class="form-control" v-model="inputValue.type">
               <option disabled value="">空間類型</option>
@@ -123,7 +186,7 @@ function clickTest() {
           </div>
         </div>
       </div>
-      <div class="form-group last-input">
+      <div class="form-group">
         <input
           type="number"
           class="form-control"
@@ -132,7 +195,7 @@ function clickTest() {
         />
         <label class="money-unit">萬元</label>
       </div>
-      <div class="form-group">
+      <div class="form-group input-textarea">
         <textarea
           class="form-control"
           rows="5"
