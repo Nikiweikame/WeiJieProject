@@ -1,11 +1,25 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 const AA = defineProps({
   slideDate: {
     type: Object,
   },
 });
 // const CC = ref(AA.slideDate.indexID);
+// onMounted(() => {
+//   document.querySelector(".tp-caption.NotGeneric-SubTitle").style.fontSize =
+//     "16px";
+// });
+
+onMounted(() => {
+  const script2 = document.createElement("script");
+  script2.type = "text/javascript";
+  script2.src = "js/jquery.min.js";
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "js/revslider.js";
+  document.body.appendChild(script);
+});
 </script>
 <style lang="scss" scoped>
 .RouterLink {
@@ -24,6 +38,31 @@ const AA = defineProps({
   letter-spacing: 1px;
   text-decoration: none;
 }
+:deep(.tp-splitted.tp-charsplit) {
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 52px;
+  letter-spacing: 0.2px;
+}
+:deep(.tp-caption.NotGeneric-SubTitle) {
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px !important;
+  line-height: 23px;
+  letter-spacing: 0.2px;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 480) {
+  :deep(.tp-parallax-wrap){
+    left: 0;
+    right:0;
+  }
+}
+
 </style>
 <template>
   <li
