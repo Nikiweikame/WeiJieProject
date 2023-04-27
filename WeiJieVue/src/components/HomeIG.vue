@@ -24,6 +24,7 @@ const counterStore = useCounterStore();
     display: flex;
     letter-spacing: 0.2px;
     color: #ffffff;
+    margin-right: 10px;
   }
 }
 .ig-content {
@@ -44,7 +45,7 @@ const counterStore = useCounterStore();
 </style>
 <template>
   <div class="home-ig" v-if="counterStore.IGDataArray?.length !== 0">
-    <a class="ig-title" :href="counterStore.link.IG">
+    <a class="ig-title" :href="counterStore.link.IG" target="_blank">
       <span>OUR INSTAGRAM</span>
       <svg
         width="40"
@@ -60,7 +61,7 @@ const counterStore = useCounterStore();
       </svg>
     </a>
     <div class="ig-content row">
-      <a v-for="item in counterStore.IGDataArray" :href="item.link" class="col-6 col-xl-3 ig-group">
+      <a v-for="item in counterStore.IGDataArray" :href="item.link" class="col-6 col-xl-3 ig-group" target="_blank">
         <img :src="item.src" :alt="item.name" class="ig-img" />
       </a>
     </div>

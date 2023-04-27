@@ -25,7 +25,6 @@ const stepImg = ref([
 .process {
   padding: 60px 16px 120px;
   h4 {
-    width: 145px;
     margin: 0 auto 30px;
     font-family: "Noto Sans TC";
     font-style: normal;
@@ -37,7 +36,7 @@ const stepImg = ref([
     color: #373f41;
   }
   .row {
-    margin: -60px auto;
+    margin: -60px auto 0;
     > div {
       margin-top: 60px;
     }

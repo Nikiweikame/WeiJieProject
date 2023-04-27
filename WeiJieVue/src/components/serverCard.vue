@@ -18,6 +18,7 @@ defineProps({
 .card {
   &__container {
     padding: 60px 16px 120px;
+    background-color: #FCFCFC;
     .row {
       margin-top: -30px;
     }

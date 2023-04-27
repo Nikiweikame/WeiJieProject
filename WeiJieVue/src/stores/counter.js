@@ -7,18 +7,39 @@ export const useCounterStore = defineStore("counter", () => {
   //   "patkn10QKod0GpMVT.e73c2dafb90ad03a72f37e72b840555c25914191d1bd7f02734274c25768ec5f";
   // const table = `appDjTmSMY5jvzqiZ`;
   // my token
+  // const token =
+  //   "patPsbteoemPG9Pi0.d71cb57b4e0a2d6d618191fd5167660c74dc8d3569e8f833932b76412ce6072c";
+  // 業主的 token
   const token =
-    "patPsbteoemPG9Pi0.d71cb57b4e0a2d6d618191fd5167660c74dc8d3569e8f833932b76412ce6072c";
+    "patTBIRH20ytbwKqn.4585412e0c6f34225c41b2d0e2254b181a9ca715c4bdd197c08cbf068576d590";
   const table = `appwxd1kO1icocyoH`;
-  function showAlert(text) {
-    const alertElement = document.querySelector(".alert.alert-danger");
-    alertElement.innerHTML = text;
+  function showPassAlert() {
+    const alertElement = document.querySelector(".alert");
     // 將警告彈窗添加到頁面上
+    alertElement.innerHTML = "諮詢單已送出，我們會盡快與您聯繫。";
+    alertElement.classList.toggle("alert-success");
     alertElement.classList.toggle("show");
     setTimeout(() => {
+      alertElement.classList.toggle("alert-success");
       alertElement.classList.toggle("show");
-      alertElement.innerHTML = "";
     }, 3000);
+  }
+  function showErrorAlert(message, originData) {
+    const alertElement = document.querySelector(".alert");
+    // 將警告彈窗添加到頁面上
+    alertElement.innerHTML = "發生錯誤，我們會盡快處理";
+    alertElement.classList.toggle("alert-danger");
+    alertElement.classList.toggle("show");
+    setTimeout(() => {
+      alertElement.classList.toggle("alert-danger");
+      alertElement.classList.toggle("show");
+    }, 3000);
+    const today = new Date();
+    const errorDate = `${today.getFullYear()}/${
+      today.getMonth() + 1
+    }/${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+    console.log();
+    errorshoot(errorDate, message, originData);
   }
   function APIshoot(content) {
     const page = "%E8%81%AF%E7%B5%A1%E6%88%91%E5%80%91";
@@ -49,13 +70,54 @@ export const useCounterStore = defineStore("counter", () => {
       body: raw,
       redirect: "follow",
     };
+    const originData = {
+      "您的姓名（必填）": content.name,
+      "聯絡電話（必填）": content.phone,
+      電子信箱: content.mail,
+      "諮詢服務項目（必選）": content.serveItem,
+      "物件地址（必填）": content.address,
+      性別稱謂: content.gender,
+      空間類型: content.type,
+      預算: content.budget,
+      其他備註需求: content.other,
+    };
+    fetch(`https://api.airtable.com/v0/${table}/${page}`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        result["error"]
+          ? showErrorAlert(result["error"], originData)
+          : showPassAlert();
+      })
+      .catch((error) =>
+        console.log("error", showErrorAlert(error, originData))
+      );
+  }
+  function errorshoot(date, errorMessage, customerMessage) {
+    const page = "%E9%8C%AF%E8%AA%A4%E5%A0%B1%E5%91%8A";
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append(
+      "Cookie",
+      "brw=brwNJctjsRJ49Zc6S; AWSALB=C/dMumgQyVsVkVkuMjM5oR5txCsc+PShnFswSr5CXF4p+IlPPuuJC/vj/yB9uGN5eq1BGK2PYpmsjNRg7qDZwA1BoUcmRClb1LL2XP4PWi+uhqBAeGbE3mQrV7h7; AWSALBCORS=C/dMumgQyVsVkVkuMjM5oR5txCsc+PShnFswSr5CXF4p+IlPPuuJC/vj/yB9uGN5eq1BGK2PYpmsjNRg7qDZwA1BoUcmRClb1LL2XP4PWi+uhqBAeGbE3mQrV7h7"
+    );
+    var raw = JSON.stringify({
+      fields: {
+        時間: date,
+        錯誤訊息: `${errorMessage.type}\n${errorMessage.message}`,
+        顧客回傳內容: JSON.stringify(customerMessage),
+      },
+    });
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
 
     fetch(`https://api.airtable.com/v0/${table}/${page}`, requestOptions)
-      .then((response) => response.text())
-      .then((result) => {
-        // console.log(result);
-        showAlert(`表單已送出，感謝${content.name}${content.gender}`);
-      })
+      .then((response) => response.json())
+      .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   }
   const serveitem = ref({
@@ -174,7 +236,7 @@ export const useCounterStore = defineStore("counter", () => {
     )
       .then((response) => response.json())
       .then((result) => {
-        result.records.forEach((item) => {
+        result.records?.forEach((item) => {
           const designSample = {
             name: item.fields["案例名稱"] ? item.fields["案例名稱"] : "",
             title: item.fields["案例名稱"] ? item.fields["案例名稱"] : "",
@@ -225,7 +287,7 @@ export const useCounterStore = defineStore("counter", () => {
     )
       .then((response) => response.json())
       .then((result) => {
-        result.records.forEach((item) => {
+        result.records?.forEach((item) => {
           const projectSample = {
             name: item.fields["案例名稱"] ? item.fields["案例名稱"] : "",
             title: item.fields["案例名稱"] ? item.fields["案例名稱"] : "",
@@ -288,7 +350,7 @@ export const useCounterStore = defineStore("counter", () => {
       .then((response) => response.json())
       .then((result) => {
         if (result.records?.length !== 0) {
-          result.records.forEach((item) => {
+          result.records?.forEach((item) => {
             const step = {
               stepContent: item.fields["流程"]
                 ? item.fields["流程"].replaceAll("\n", "<br>")
@@ -342,7 +404,7 @@ export const useCounterStore = defineStore("counter", () => {
     )
       .then((response) => response.json())
       .then((result) => {
-        result.records.forEach((item, index) => {
+        result.records?.forEach((item, index) => {
           serveItemArray[index].value = {
             name: item.fields["項目"],
             subImg: item.fields["圖片"][0]["url"],
@@ -380,7 +442,7 @@ export const useCounterStore = defineStore("counter", () => {
     )
       .then((response) => response.json())
       .then((result) => {
-        result.records.forEach((item) => {
+        result.records?.forEach((item) => {
           const IGDataSample = {
             name: item.fields["名稱"] ? item.fields["名稱"] : "",
             src: item.fields["圖片"] ? item.fields["圖片"][0]["url"] : "",

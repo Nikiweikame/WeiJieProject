@@ -202,7 +202,7 @@ label {
         <textarea
           class="form-control"
           rows="5"
-          placeholder="其他備註需求"
+          placeholder="其他備註需求（可填寫電話方便聯繫的時間）"
           v-model="inputValue.other"
         ></textarea>
       </div>

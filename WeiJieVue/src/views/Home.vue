@@ -15,7 +15,7 @@ const sildeDataArray = ref([
     path: "/about",
   },
   // {
-  //   title: "崴傑地產開發1",
+  //   title: "崴傑地產開發",
   //   subTitle: "在崴傑，您對家的夢想，由我們守護。",
   //   button: "認識崴傑",
   //   background: "/src/upload/Rectangle4.png",
@@ -26,11 +26,13 @@ const sildeDataArray = ref([
 const onlyOne = ref(sildeDataArray.value.length === 1);
 // location.reload()
 onMounted(() => {
-  const script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = "js/revslider.js";
-  document.body.appendChild(script);
-  document.querySelectorAll(".RouterLink").forEach((item)=>item.onclick=(e)=>e.stopPropagation())
+  // const script = document.createElement("script");
+  // script.type = "text/javascript";
+  // script.src = "js/revslider.js";
+  // document.body.appendChild(script);
+  document
+    .querySelectorAll(".RouterLink")
+    .forEach((item) => (item.onclick = (e) => e.stopPropagation()));
 });
 </script>
 <style lang="scss" scoped>
@@ -72,6 +74,7 @@ onMounted(() => {
       </div>
     </div>
   </div>
+
   <HomeServe />
   <HomeIG />
   <HomeContact />

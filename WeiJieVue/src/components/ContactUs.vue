@@ -87,7 +87,7 @@ defineProps({
             </svg>
             <a :href="'tel:' + counterStore.basicInformation?.phone">{{
               counterStore.basicInformation?.phone
-            }}</a>
+            }} </a>
           </li>
           <li v-if="counterStore.basicInformation?.address !== undefined">
             <svg
@@ -102,7 +102,7 @@ defineProps({
                 :fill="iconColor"
               />
             </svg>
-            <a :href="counterStore.basicInformation?.googleMap">{{
+            <a :href="counterStore.basicInformation?.googleMap" target="_blank">{{
               counterStore.basicInformation?.address
             }}</a>
           </li>

@@ -26,7 +26,6 @@ const serveGroup = ref([
   }
   .header__navLink {
     width: auto;
-    padding: 15px 0 60px;
   }
   .nav-item .nav-link {
     font-family: "Noto Sans TC";
@@ -35,13 +34,16 @@ const serveGroup = ref([
     font-size: 24px;
     line-height: 35px;
     letter-spacing: 0.2px;
-
     color: #4d4c4a;
-
     padding: 15px 16px;
+    &.disable-link {
+      color: #c4c4c4;
+      pointer-events: none;
+    }
   }
   .navbar-nav {
     align-items: flex-start;
+    padding: 15px 0 60px;
     .has-submenu {
       &.show > .dropdown-menu {
         display: block;
@@ -99,12 +101,10 @@ const serveGroup = ref([
       position: fixed;
       padding: 10px 150px;
     }
-    .header__navLink {
-      padding: 0px;
-    }
     .navbar-nav {
       align-items: center;
       height: 50px;
+      padding: 0;
       .has-submenu {
         ul.dropdown-menu {
           top: 70px;
@@ -126,10 +126,6 @@ const serveGroup = ref([
       letter-spacing: 0.2px;
 
       color: #4d4c4a;
-      &.disable-link {
-        color: #c4c4c4;
-        pointer-events: none;
-      }
     }
     .dropdown-menu {
       border: 1px solid #f5f5f5;
@@ -265,10 +261,7 @@ const serveGroup = ref([
             </li>
             <li class="nav-item">
               <div class="header__social-software">
-                <a
-                  class="nav-link"
-                  :href="counterStore.link.FB"
-                  target="_blank"
+                <a class="nav-link" :href="counterStore.link.FB" target="_blank"
                   ><svg
                     width="40"
                     height="40"
@@ -282,10 +275,7 @@ const serveGroup = ref([
                     />
                   </svg>
                 </a>
-                <a
-                  class="nav-link"
-                  :href="counterStore.link.IG"
-                  target="_blank"
+                <a class="nav-link" :href="counterStore.link.IG" target="_blank"
                   ><svg
                     width="40"
                     height="40"
