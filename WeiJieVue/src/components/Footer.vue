@@ -27,18 +27,6 @@ const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reser
     letter-spacing: 0.2px;
     color: #ffffff;
   }
-  &__describe {
-    margin-top: 20px;
-    margin-bottom: 0;
-    font-family: "Noto Sans TC";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 23px;
-    letter-spacing: 0.2px;
-
-    color: #ffffff;
-  }
   // &__name {
   //   margin: 0 0 0 20px;
   // }

@@ -14,13 +14,21 @@ const serveItem = ref(["design", "manage", "develop", "property", "auction"]);
     justify-content: space-between;
     position: static;
   }
+  h1 {
+    margin: 0;
+  }
+
   &__logo {
     padding: 0;
     margin: 0;
     cursor: pointer;
+    img {
+      height: 50px;
+    }
   }
   .header__navLink {
     width: auto;
+    // flex-shrink: 0;
   }
   .nav-item .nav-link {
     font-family: "Noto Sans TC";
@@ -174,9 +182,11 @@ const serveItem = ref(["design", "manage", "develop", "property", "auction"]);
             </svg>
           </span>
         </button>
-        <RouterLink class="navbar-brand header__logo" to="/"
-          ><img src="../assets/logo_navibar.png" alt="威傑地產開發logo"
-        /></RouterLink>
+        <h1>
+          <RouterLink class="navbar-brand header__logo" to="/"
+            ><img src="../assets/logo_navibar.png" alt="威傑地產開發logo"
+          /></RouterLink>
+        </h1>
         <div
           class="collapse navbar-collapse header__navLink"
           id="navbarMbileMenu"
