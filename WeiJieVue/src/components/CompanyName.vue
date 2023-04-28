@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <div>
     <RouterLink to="/">
-      <img src="../images/CompanyName.png" alt="崴傑地產開發" />
+      <img src="../assets/images/CompanyName.png" alt="崴傑地產開發" />
     </RouterLink>
     <p class="footer__describe">在崴傑，您對家的夢想，由我們守護。</p>
   </div>

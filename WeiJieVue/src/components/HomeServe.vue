@@ -1,34 +1,10 @@
 <script setup>
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
+import { useCounterStore } from "@/stores/counter.js";
+const counterStore = useCounterStore();
 const title = ref(["崴傑地產團隊致力於", "房地產及房市相關專業服務"]);
-const ServeItem = ref([
-  {
-    name: "設計規劃",
-    img: "src/images/Servesub.png",
-    path: "/design",
-  },
-  {
-    name: "工程管理",
-    img: "src/images/Manage.png",
-    path: "/manage",
-  },
-  {
-    name: "土地開發",
-    img: "src/images/Develop.png",
-    path: "/develop",
-  },
-  {
-    name: "物業管家",
-    img: "src/images/Property.png",
-    path: "/property",
-  },
-  {
-    name: "資產標售",
-    img: "src/images/Auction.png",
-    path: "/auction",
-  },
-]);
+// const serveItem = ref(["design", "manage", "develop", "property", "auction"]);
 </script>
 <style lang="scss" scoped>
 .contain {
@@ -101,10 +77,13 @@ const ServeItem = ref([
       <p v-for="text in title">{{ text }}</p>
     </div>
     <div class="content row">
-      <div class="col-12 col-xl-4 serve-item" v-for="item in ServeItem">
-        <img :src="item.img" :alt="item.name" />
-        <RouterLink class="serve-link" :to="'/serve' + item.path">{{
-          item.name
+      <div class="col-12 col-xl-4 serve-item" v-for="item in counterStore.serveItem">
+        <img
+          :src="counterStore[item]?.subImg"
+          :alt="counterStore[item]?.name"
+        />
+        <RouterLink class="serve-link" :to="'/serve/' + item">{{
+          counterStore[item]?.name
         }}</RouterLink>
       </div>
     </div>

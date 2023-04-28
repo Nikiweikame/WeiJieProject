@@ -3,13 +3,8 @@ import { RouterLink, RouterView } from "vue-router";
 import { ref } from "vue";
 import { useCounterStore } from "@/stores/counter.js";
 const counterStore = useCounterStore();
-const serveGroup = ref([
-  { name: "設計規劃", path: "/design" },
-  { name: "工程管理", path: "/manage" },
-  { name: "土地開發", path: "/develop" },
-  { name: "物業管家", path: "/property" },
-  { name: "資產標售", path: "/auction" },
-]);
+
+const serveItem = ref(["design", "manage", "develop", "property", "auction"]);
 </script>
 <style lang="scss">
 .header {
@@ -227,10 +222,10 @@ const serveGroup = ref([
                 </svg>
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                <li v-for="element in serveGroup">
-                  <RouterLink :to="'/serve' + element.path">
+                <li v-for="item in serveItem.serveItem">
+                  <RouterLink :to="'/serve/' + item">
                     <a class="dropdown-item" href="single-portfolio.html">{{
-                      element.name
+                      counterStore[item]?.name
                     }}</a>
                   </RouterLink>
                 </li>

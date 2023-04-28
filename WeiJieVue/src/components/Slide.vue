@@ -19,6 +19,9 @@ onMounted(() => {
   script.type = "text/javascript";
   script.src = "js/revslider.js";
   document.body.appendChild(script);
+  document
+    .querySelectorAll(".RouterLink")
+    .forEach((item) => (item.onclick = (e) => e.stopPropagation()));
 });
 </script>
 <style lang="scss" scoped>

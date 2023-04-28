@@ -5,7 +5,7 @@ const counterStore = useCounterStore();
 </script>
 <style lang="scss" scoped>
 .home-ig {
-  background: url("../images/IGbackground.png");
+  background: url("../assets/images/IGbackground.png");
   background-size: 100% 100%;
   padding: 60px 15px;
 }
