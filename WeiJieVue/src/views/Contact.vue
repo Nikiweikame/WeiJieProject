@@ -12,16 +12,13 @@ const pageTitleContnet = ref({
 });
 </script>
 <style lang="scss" scoped>
-// .contact-us__titleBox {
-//   background-image: url("../images/Contactus.png");
-// }
 .contact-us {
   :deep(.widget.clearfix) {
     width: fit-content;
     margin: 0 auto;
   }
   &__titleBox {
-    background-image: url("../images/Contactus.png");
+    background-image: url("../assets/images/Contactus.png");
   }
   &__content {
     padding: 50px 150px 200px;

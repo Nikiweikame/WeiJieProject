@@ -9,28 +9,6 @@ const pageTitleContnet = ref({
   title: "工程案例",
   subtitle: "整合與細膩，各項工程的實績",
 });
-const imgGroup = ref([
-  {
-    src: "src/images/projectCase01.png",
-    name: "projectCase01",
-    title: "台南安平陳宅",
-  },
-  {
-    src: "src/images/projectCase02.png",
-    name: "projectCase02",
-    title: "台南安平陳宅",
-  },
-  {
-    src: "src/images/projectCase03.png",
-    name: "projectCase03",
-    title: "台南安平陳宅",
-  },
-  {
-    src: "src/images/projectCase04.png",
-    name: "projectCase04",
-    title: "台南安平陳宅",
-  },
-]);
 
 watch(counterStore.projectSampleArray, () => {
   const script = document.createElement("script");
@@ -48,7 +26,7 @@ onMounted(() => {
 <style lang="scss">
 .projectCase {
   &__titleBox {
-    background-image: url("../images/projectCase.png");
+    background-image: url("../assets/images/projectCase.png");
   }
   &__content {
     padding: 60px 16px 120px;

@@ -3,11 +3,6 @@ import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Serve from "../views/Serve.vue";
 import ServeItem from "../views/ServeItem.vue";
-// import Design from "../views/Design.vue";
-// import Manage from "../views/Manage.vue";
-// import Develop from "../views/Develop.vue";
-// import Property from "../views/Property.vue";
-// import Auction from "../views/Auction.vue";
 import DesignCase from "../views/DesignCase.vue";
 import DesignCaseSample from "../views/DesignCaseSample.vue";
 import ProjectCase from "../views/ProjectCase.vue";
@@ -44,26 +39,6 @@ const router = createRouter({
           name: "Serveitem",
           component: ServeItem,
         },
-        // {
-        //   path: "manage",
-        //   name: "manage",
-        //   component: Manage,
-        // },
-        // {
-        //   path: "develop",
-        //   name: "develop",
-        //   component: Develop,
-        // },
-        // {
-        //   path: "property",
-        //   name: "property",
-        //   component: Property,
-        // },
-        // {
-        //   path: "auction",
-        //   name: "auction",
-        //   component: Auction,
-        // },
       ],
     },
     {

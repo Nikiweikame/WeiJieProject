@@ -14,10 +14,10 @@ const AA = defineProps({
 onMounted(() => {
   const script2 = document.createElement("script");
   script2.type = "text/javascript";
-  script2.src = "js/jquery.min.js";
+  script2.src = "/js/jquery.min.js";
   const script = document.createElement("script");
   script.type = "text/javascript";
-  script.src = "js/revslider.js";
+  script.src = "/js/revslider.js";
   document.body.appendChild(script);
   document
     .querySelectorAll(".RouterLink")

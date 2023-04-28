@@ -5,7 +5,7 @@ const pageTitleContnet = ref({
   name: "about",
   title: "認識崴傑",
   subtitle: "在崴傑，您對家的夢想，由我們守護。",
-  subImg: "src/images/Aboutsub.png",
+  subImg: "src/assets/images/Aboutsub.png",
 });
 
 const contentText = ref([
@@ -18,7 +18,7 @@ const contentText = ref([
 <style lang="scss" scoped>
 .about {
   &__titleBox {
-    background-image: url("../images/About.png");
+    background-image: url("../assets/images/About.png");
   }
   &__content {
     padding: 60px 16px 120px;

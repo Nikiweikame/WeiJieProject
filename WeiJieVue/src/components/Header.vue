@@ -222,7 +222,7 @@ const serveItem = ref(["design", "manage", "develop", "property", "auction"]);
                 </svg>
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                <li v-for="item in serveItem.serveItem">
+                <li v-for="item in counterStore.serveItem">
                   <RouterLink :to="'/serve/' + item">
                     <a class="dropdown-item" href="single-portfolio.html">{{
                       counterStore[item]?.name

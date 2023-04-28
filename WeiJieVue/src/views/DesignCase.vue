@@ -25,7 +25,7 @@ onMounted(() => {
 <style lang="scss">
 .designCase {
   .titleBox {
-    background-image: url("../images/designCase.png");
+    background-image: url("../assets/images/designCase.png");
   }
   .titleContent {
     height: 119px;

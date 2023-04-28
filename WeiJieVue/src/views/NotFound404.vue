@@ -9,7 +9,7 @@ const pageTitleContnet = ref({
 <style lang="scss" scoped>
 .not-found {
   &__titleBox {
-    background-image: url("../images/Contactus.png");
+    background-image: url("../assets/images/Contactus.png");
     :deep(.titleContent) {
       padding: 34px 0 33px;
       h3 {

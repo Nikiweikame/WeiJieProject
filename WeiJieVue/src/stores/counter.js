@@ -365,22 +365,10 @@ export const useCounterStore = defineStore("counter", () => {
     // console.log(elementStep);
   }
   const design = ref();
-  const manage = ref({
-    name: "",
-    subImg: "",
-  });
-  const develop = ref({
-    name: "",
-    subImg: "",
-  });
-  const property = ref({
-    name: "",
-    subImg: "",
-  });
-  const auction = ref({
-    name: "",
-    subImg: "",
-  });
+  const manage = ref();
+  const develop = ref();
+  const property = ref();
+  const auction = ref();
   const serveItemArray = [design, manage, develop, property, auction];
   serveImgAPI();
   function serveImgAPI() {
@@ -453,6 +441,8 @@ export const useCounterStore = defineStore("counter", () => {
       })
       .catch((error) => console.log("error", error));
   }
+  const serveItem = ref(["design", "manage", "develop", "property", "auction"]);
+
   return {
     APIshoot,
     // submitData,
@@ -478,5 +468,6 @@ export const useCounterStore = defineStore("counter", () => {
     auction,
     link,
     IGDataArray,
+    serveItem,
   };
 });
