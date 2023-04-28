@@ -5,7 +5,6 @@ const pageTitleContnet = ref({
   name: "about",
   title: "認識崴傑",
   subtitle: "在崴傑，您對家的夢想，由我們守護。",
-  subImg: "src/assets/images/Aboutsub.png",
 });
 
 const contentText = ref([
@@ -57,7 +56,7 @@ const contentText = ref([
     <div class="about__content">
       <div class="row">
         <div class="col-12 col-xl-6 about__info">
-          <img :src="pageTitleContnet.subImg" alt="" />
+          <img src="../assets/images/Aboutsub.png" alt="" />
         </div>
         <div class="col-12 col-xl-6 about__info">
           <p v-for="text in contentText">{{ text }}</p>
