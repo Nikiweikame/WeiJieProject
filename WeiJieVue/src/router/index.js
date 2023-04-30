@@ -10,6 +10,7 @@ import ProjectCaseSample from "../views/ProjectCaseSample.vue";
 import Contact from "../views/Contact.vue";
 import NotFound404 from "../views/NotFound404.vue";
 const scrollBehavior = (to, from, savedPosition) => {
+  // document.querySelector("#navbarMbileMenu").classList.remove("show");
   if (savedPosition && to.meta.keepAlive) {
     return savedPosition;
   }
@@ -79,6 +80,10 @@ const router = createRouter({
     },
   ],
   scrollBehavior,
+});
+
+router.afterEach((to, from, next) => {
+  document.querySelector("#navbarMbileMenu").classList.remove("show");
 });
 
 export default router;
