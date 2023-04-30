@@ -10,7 +10,7 @@ const sildeDataArray = ref([
     title: "崴傑地產開發",
     subTitle: "在崴傑，您對家的夢想，由我們守護。",
     button: "認識崴傑",
-    background: "../images/Rectangle4.png",
+    background: "images/Rectangle4.png",
     indexID: "rs-3045",
     path: "/about",
   },
