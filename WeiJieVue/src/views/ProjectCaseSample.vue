@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from "vue";
+import { ref } from "vue";
 import PageTitle01 from "../components/PageTitle01.vue";
 import { useCounterStore } from "@/stores/counter.js";
 const counterStore = useCounterStore();

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import Slide from "../components/Slide.vue";
 import HomeServe from "../components/HomeServe.vue";
 import HomeIG from "../components/HomeIG.vue";
@@ -24,7 +24,6 @@ const sildeDataArray = ref([
   // },
 ]);
 const onlyOne = ref(sildeDataArray.value.length === 1);
-// location.reload()
 </script>
 <style lang="scss" scoped>
 :deep(.onlyOne .tparrows) {

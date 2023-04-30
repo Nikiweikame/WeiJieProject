@@ -11,17 +11,17 @@ const AA = defineProps({
 //     "16px";
 // });
 
+const script = document.createElement("script");
+script.type = "text/javascript";
+script.src = "/js/revslider.js";
 onMounted(() => {
-  const script2 = document.createElement("script");
-  script2.type = "text/javascript";
-  script2.src = "/js/jquery.min.js";
-  const script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = "/js/revslider.js";
   document.body.appendChild(script);
   document
     .querySelectorAll(".RouterLink")
     .forEach((item) => (item.onclick = (e) => e.stopPropagation()));
+});
+onUnmounted(() => {
+  document.body.removeChild(script);
 });
 </script>
 <style lang="scss" scoped>
@@ -60,12 +60,11 @@ onMounted(() => {
 }
 
 @media screen and (max-width: 480) {
-  :deep(.tp-parallax-wrap){
+  :deep(.tp-parallax-wrap) {
     left: 0;
-    right:0;
+    right: 0;
   }
 }
-
 </style>
 <template>
   <li

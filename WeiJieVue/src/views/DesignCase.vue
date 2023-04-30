@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch, onUnmounted } from "vue";
 import PageTitle01 from "../components/PageTitle01.vue";
 import { RouterLink } from "vue-router";
 import { useCounterStore } from "@/stores/counter.js";
@@ -9,17 +9,17 @@ const pageTitleContnet = ref({
   title: "設計案例",
   subtitle: "貼近人們需求，設計最理想的空間",
 });
+const script = document.createElement("script");
+script.type = "text/javascript";
+script.src = "js/masonry.js";
 watch(counterStore.designSampleArray, () => {
-  const script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = "js/masonry.js";
   document.body.appendChild(script);
 });
 onMounted(() => {
-  const script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = "js/masonry.js";
   document.body.appendChild(script);
+});
+onUnmounted(() => {
+  document.body.removeChild(script);
 });
 </script>
 <style lang="scss">
