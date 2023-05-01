@@ -49,7 +49,7 @@ onUnmounted(() => {
   line-height: 52px;
   letter-spacing: 0.2px;
 }
-:deep(.tp-caption.NotGeneric-SubTitle) {
+:deep(.tp-caption.NotGeneric-SubTitle) h2{
   font-family: "Noto Sans TC";
   font-style: normal;
   font-weight: 500;
@@ -57,8 +57,8 @@ onUnmounted(() => {
   line-height: 23px;
   letter-spacing: 0.2px;
   color: #ffffff;
+  margin: 0;
 }
-
 @media screen and (max-width: 480) {
   :deep(.tp-parallax-wrap) {
     left: 0;
@@ -159,7 +159,7 @@ onUnmounted(() => {
       data-paddingleft="[0,0,0,90]"
       style="z-index: 6; white-space: nowrap; text-transform: left"
     >
-      {{ slideDate.subTitle }}
+      <h2>{{ slideDate.subTitle }}</h2>
     </div>
 
     <!-- LAYER NR. 3 -->

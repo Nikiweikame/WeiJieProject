@@ -10,7 +10,6 @@ import ProjectCaseSample from "../views/ProjectCaseSample.vue";
 import Contact from "../views/Contact.vue";
 import NotFound404 from "../views/NotFound404.vue";
 const scrollBehavior = (to, from, savedPosition) => {
-  // document.querySelector("#navbarMbileMenu").classList.remove("show");
   if (savedPosition && to.meta.keepAlive) {
     return savedPosition;
   }
@@ -83,7 +82,16 @@ const router = createRouter({
 });
 
 router.afterEach((to, from, next) => {
+  // setTimeout(() => {
+  //   document.querySelector("header").classList.remove("loading");
+  // }, 300);
+});
+router.beforeEach((to, from, next) => {
   document.querySelector("#navbarMbileMenu").classList.remove("show");
+  next();
+  // document.querySelector("header").classList.add("loading");
+  // setTimeout(() => {
+  // }, 500);
 });
 
 export default router;
