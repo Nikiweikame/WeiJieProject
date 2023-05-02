@@ -1,12 +1,40 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useCounterStore } from "@/stores/counter.js";
 const counterStore = useCounterStore();
 
 const serveItem = ref(["design", "manage", "develop", "property", "auction"]);
+onMounted(() => {
+  setTimeout(() => {
+    document.querySelector("header").classList.remove("loading");
+  }, 1000);
+});
 </script>
 <style lang="scss">
+.loading.header {
+  .header__nav {
+    height: 70px;
+  }
+  h1 {
+    position: fixed;
+    z-index: 999;
+    background-color: #fff;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    right: 0;
+    top: 0;
+    text-align: center;
+    padding: 40% calc(50% - 250px) 60%;
+    // transition: none;
+    // transition: background-color ease 0.5s;
+    opacity: 100%;
+    img {
+      height: 100px;
+    }
+  }
+}
 .header {
   &__nav {
     background-color: #ffffffe6;
@@ -16,6 +44,9 @@ const serveItem = ref(["design", "manage", "develop", "property", "auction"]);
   }
   h1 {
     margin: 0;
+    transition: all 1s ease;
+    background-color: transparent;
+    line-height: 1;
   }
 
   &__logo {
@@ -24,6 +55,7 @@ const serveItem = ref(["design", "manage", "develop", "property", "auction"]);
     cursor: pointer;
     img {
       height: 50px;
+      transition: all 1s ease;
     }
   }
   .header__navLink {
@@ -155,10 +187,13 @@ const serveItem = ref(["design", "manage", "develop", "property", "auction"]);
       color: #373f41;
     }
   }
+  .loading.header h1 {
+    padding: 20% calc(50% - 250px); 
+  }
 }
 </style>
 <template>
-  <header class="header">
+  <header class="header loading">
     <div class="container-xl px-0">
       <nav class="navbar navbar-toggleable-lg fixed-top header__nav">
         <button
