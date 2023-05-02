@@ -128,6 +128,14 @@ onMounted(() => {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .loading.header h1 {
+    padding: 20% calc(50% - 250px) 80%;
+    img {
+      height: 100px;
+    }
+  }
+}
 @media screen and (min-width: 1200px) {
   .header {
     &__nav {
@@ -185,13 +193,6 @@ onMounted(() => {
       color: #373f41;
     }
   }
-  .loading.header h1 {
-    padding: 20% calc(50% - 250px) 60%;
-    img {
-      height: 100px;
-    }
-  }
-  
 }
 </style>
 <template>
