@@ -26,12 +26,10 @@ onMounted(() => {
     right: 0;
     top: 0;
     text-align: center;
-    padding: 40% calc(50% - 250px) 60%;
-    // transition: none;
-    // transition: background-color ease 0.5s;
+    padding: 40% calc(50% - 125px) 60%;
     opacity: 100%;
     img {
-      height: 100px;
+      height: 50px;
     }
   }
 }
@@ -188,8 +186,12 @@ onMounted(() => {
     }
   }
   .loading.header h1 {
-    padding: 20% calc(50% - 250px); 
+    padding: 20% calc(50% - 250px) 60%;
+    img {
+      height: 100px;
+    }
   }
+  
 }
 </style>
 <template>
