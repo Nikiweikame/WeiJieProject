@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { RouterLink } from "vue-router";
 import { useCounterStore } from "@/stores/counter.js";
 const counterStore = useCounterStore();
-const title = ref(["崴傑地產團隊致力於", "房地產及房市相關專業服務"]);
+const title = ref(`崴傑地產團隊致力於<br/>房地產及房市相關專業服務`);
 // const serveItem = ref(["design", "manage", "develop", "property", "auction"]);
 </script>
 <style lang="scss" scoped>
@@ -14,7 +14,7 @@ const title = ref(["崴傑地產團隊致力於", "房地產及房市相關專�
   margin: -30px auto;
   // width: 652px;
   padding: 30px;
-  p {
+  h2 {
     font-family: "Noto Sans TC";
     font-style: normal;
     font-weight: 700;
@@ -74,7 +74,7 @@ const title = ref(["崴傑地產團隊致力於", "房地產及房市相關專�
 <template>
   <div class="contain">
     <div class="title">
-      <p v-for="text in title">{{ text }}</p>
+      <h2 v-html="title"></h2>
     </div>
     <div class="content row">
       <div class="col-12 col-xl-4 serve-item" v-for="item in counterStore.serveItem">
