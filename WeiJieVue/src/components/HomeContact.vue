@@ -34,7 +34,7 @@ import { RouterLink, RouterView } from "vue-router";
 </style>
 <template>
   <div class="home-contain">
-    <p class="promise">對空間的規劃有任何專業需求，歡迎與我們聯繫</p>
+    <p class="promise">如有任何專業需求，歡迎與我們聯繫</p>
     <RouterLink to="/contact" class="btn btn-primary">聯絡崴傑</RouterLink>
   </div>
 </template>

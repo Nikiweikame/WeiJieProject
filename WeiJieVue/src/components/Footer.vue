@@ -5,7 +5,9 @@ import LinkGroup from "./LinkGroup.vue";
 import Copyright from "./Copyright.vue";
 import { ref } from "vue";
 
-const copyRightText = ref("Copyright 2023 © 崴傑地產開發 All rights reserved.");
+const copyRightText = ref(
+  "Copyright 2023 © 崴傑傳承家族辦公室 All rights reserved."
+);
 </script>
 <style lang="scss">
 .footer {

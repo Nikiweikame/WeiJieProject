@@ -8,7 +8,7 @@ const counterStore = useCounterStore();
 const pageTitleContnet = ref({
   name: "contact-us",
   title: "聯絡我們",
-  subtitle: "對空間的規劃有任何專業需求，歡迎與我們聯繫",
+  subtitle: "如有任何專業需求，歡迎與我們聯繫",
 });
 </script>
 <style lang="scss" scoped>
@@ -130,7 +130,7 @@ a {
 
         <ContactUs
           class="col-12 col-xl-6 contact-us__business-card"
-          :title="'崴傑地產開發'"
+          :title="'崴傑傳承家族辦公室'"
           :iconColor="'#373F41'"
         >
           <li class="link-group">

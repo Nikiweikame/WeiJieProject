@@ -26,7 +26,7 @@ import { RouterLink, RouterView } from "vue-router";
       <img
         class="company-name"
         src="../assets/images/CompanyName.png"
-        alt="崴傑地產開發"
+        alt="崴傑傳承家族辦公室"
       />
     </RouterLink>
     <p class="company-describe">在崴傑，您對家的夢想，由我們守護。</p>
