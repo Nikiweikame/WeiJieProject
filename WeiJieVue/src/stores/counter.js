@@ -150,20 +150,17 @@ export const useCounterStore = defineStore("counter", () => {
       .then((response) => response.json())
       .then((result) => {
         result.records?.forEach((element) => {
-          if (element.fields["設計規劃"]) {
-            serveitem.value.design.push(element.fields["設計規劃"]);
+          if (element.fields["地產"]) {
+            serveitem.value.design.push(element.fields["地產"]);
           }
-          if (element.fields["工程管理"]) {
-            serveitem.value.manage.push(element.fields["工程管理"]);
+          if (element.fields["財富傳承"]) {
+            serveitem.value.manage.push(element.fields["財富傳承"]);
           }
-          if (element.fields["土地開發"]) {
-            serveitem.value.develop.push(element.fields["土地開發"]);
+          if (element.fields["會計信託"]) {
+            serveitem.value.develop.push(element.fields["會計信託"]);
           }
-          if (element.fields["物業管家"]) {
-            serveitem.value.property.push(element.fields["物業管家"]);
-          }
-          if (element.fields["資產標售"]) {
-            serveitem.value.auction.push(element.fields["資產標售"]);
+          if (element.fields["家族服務"]) {
+            serveitem.value.property.push(element.fields["家族服務"]);
           }
         });
       })

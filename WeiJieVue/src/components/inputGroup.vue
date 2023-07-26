@@ -17,13 +17,7 @@ const inputValue = ref({
   budget: "",
   other: "",
 });
-const serveGroup = ref([
-  "設計規劃",
-  "工程管理",
-  "土地開發",
-  "物業管家",
-  "資產標售",
-]);
+const serveGroup = ref(["地產", "財富傳承", "會計信託", "家族服務"]);
 const typeGroup = ref([
   "大樓住宅（有電梯）",
   "公寓（無電梯）",
