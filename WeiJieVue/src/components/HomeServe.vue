@@ -78,7 +78,7 @@ const title = ref(`崴傑傳承家族辦公室提供一站式財富管理服務�
     </div>
     <div class="content row">
       <div
-        class="col-12 col-xl-4 serve-item"
+        class="col-12 col-xl-6 serve-item"
         v-for="item in counterStore.serveItem"
       >
         <img
