@@ -29,7 +29,7 @@ onMounted(() => {
     padding: 40% calc(50% - 125px) 60%;
     opacity: 100%;
     img {
-      height: 50px;
+      height: 44px;
     }
   }
 }
