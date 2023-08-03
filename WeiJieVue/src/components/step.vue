@@ -94,7 +94,7 @@ const stepImg = ref([
 </style>
 <template>
   <div class="process">
-    <h4>服務流程</h4>
+    <h4>設計規劃服務流程</h4>
     <div class="row">
       <div class="col-12 col-xl-4" v-for="(element, index) in process">
         <div class="process__step">
