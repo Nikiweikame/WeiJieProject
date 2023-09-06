@@ -286,8 +286,9 @@ onMounted(() => {
                 :class="{
                   'disable-link': counterStore.designSampleArray.length === 0,
                 }"
-                >設計案例</RouterLink
               >
+                地產案件
+              </RouterLink>
             </li>
             <li class="nav-item">
               <RouterLink
@@ -296,8 +297,9 @@ onMounted(() => {
                 :class="{
                   'disable-link': counterStore.projectSampleArray.length === 0,
                 }"
-                >工程案例</RouterLink
               >
+                實體活動
+              </RouterLink>
             </li>
             <li class="nav-item">
               <RouterLink class="nav-link" to="/contact">聯絡我們</RouterLink>

@@ -359,7 +359,6 @@ export const useCounterStore = defineStore("counter", () => {
         }
       })
       .catch((error) => console.log("error", error));
-    // console.log(elementStep);
   }
   const design = ref();
   const manage = ref();
