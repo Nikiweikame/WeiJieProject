@@ -233,7 +233,7 @@ onMounted(() => {
             <li class="nav-item">
               <RouterLink class="nav-link" to="/about">認識崴傑</RouterLink>
             </li>
-            <li class="nav-item dropdown has-submenu">
+            <!-- <li class="nav-item dropdown has-submenu">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -278,7 +278,14 @@ onMounted(() => {
                   </RouterLink>
                 </li>
               </ul>
-            </li>
+            </li> -->
+            <template v-for="item in counterStore.serveItem">
+              <li class="nav-item" v-if="counterStore[item]">
+                <RouterLink class="nav-link" :to="'/serve/' + item">
+                  {{ counterStore[item]?.name }}
+                </RouterLink>
+              </li>
+            </template>
             <li class="nav-item">
               <RouterLink
                 class="nav-link"
