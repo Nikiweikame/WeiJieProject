@@ -437,6 +437,42 @@ export const useCounterStore = defineStore("counter", () => {
       })
       .catch((error) => console.log("error", error));
   }
+
+  const ServeContent = ref([]);
+  ServeContentAPI();
+  function ServeContentAPI() {
+    const page = "%E6%9C%8D%E5%8B%99%E9%A0%85%E7%9B%AE%E9%A0%81%E9%9D%A2";
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append(
+      "Cookie",
+      "brw=brwNJctjsRJ49Zc6S; AWSALB=2eMNzt8SkPublfrM3U6W6Z+y/LDSaAk31Esx2cq49vtgM9q8BjOjlhfmosTeJSHE3JwBuFPBO/16kPVpvoAfrTdIGRHa4zhnCy/F0RLKAlUD2lkr7U1C/0pudpfC; AWSALBCORS=2eMNzt8SkPublfrM3U6W6Z+y/LDSaAk31Esx2cq49vtgM9q8BjOjlhfmosTeJSHE3JwBuFPBO/16kPVpvoAfrTdIGRHa4zhnCy/F0RLKAlUD2lkr7U1C/0pudpfC"
+    );
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(
+      `https://api.airtable.com/v0/${table}/${page}?view=Grid%20view`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        result.records?.forEach((item) => {
+          item.fields["項目"] &&
+            ServeContent.value.push({
+              topic: item.fields["項目"] || "",
+              title: item.fields["標題"] || "",
+              src: item.fields["圖片"] ? item.fields["圖片"][0]["url"] : "",
+              content: item.fields["內文"] || "",
+            });
+        });
+      })
+      .catch((error) => console.log("error", error));
+  }
   const serveItem = ref(["design", "manage", "develop", "property", "auction"]);
 
   return {
@@ -464,6 +500,7 @@ export const useCounterStore = defineStore("counter", () => {
     auction,
     link,
     IGDataArray,
+    ServeContent,
     serveItem,
   };
 });

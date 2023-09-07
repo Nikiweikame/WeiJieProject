@@ -16,8 +16,5 @@ const step = computed(() => `${route.params.id}Step`);
     :subImg="counterStore[id]?.subImg"
     :contentText="counterStore.serveitem[id]"
   />
-  <Step
-    :process="counterStore[step]"
-    v-if="counterStore[step].length !== 0"
-  />
+  <Step :process="counterStore[step]" v-if="counterStore[step].length !== 0" />
 </template>

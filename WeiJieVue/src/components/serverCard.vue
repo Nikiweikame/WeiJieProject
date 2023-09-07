@@ -1,5 +1,9 @@
 <script setup>
-defineProps({
+import { useCounterStore } from "@/stores/counter.js";
+import { computed } from "vue";
+const counterStore = useCounterStore();
+
+const props = defineProps({
   card: {
     tpye: Object,
   },
@@ -13,12 +17,16 @@ defineProps({
     type: String,
   },
 });
+
+const contents = computed(() => {
+  return counterStore.ServeContent.filter((o) => o.topic == props.nameTitle);
+});
 </script>
 <style lang="scss" scoped>
 .card {
   &__container {
-    padding: 60px 16px 120px;
-    background-color: #FCFCFC;
+    padding: 60px 16px 60px;
+    background-color: #fcfcfc;
     .row {
       margin-top: -30px;
     }
@@ -29,7 +37,7 @@ defineProps({
       font-family: "Noto Sans TC";
       font-style: normal;
       font-weight: 500;
-      font-size: 36px;
+      font-size: 32px;
       line-height: 52px;
       letter-spacing: 0.2px;
       color: #373f41;
@@ -40,7 +48,7 @@ defineProps({
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
-      line-height: 23px;
+      line-height: 26px;
       letter-spacing: 0.2px;
       color: #373f41;
       margin: 0px;
@@ -62,7 +70,7 @@ defineProps({
 @media screen and (min-width: 1200px) {
   .card {
     &__container {
-      padding: 60px 150px 120px;
+      padding: 60px 150px 60px;
     }
     &__img {
       text-align: start;
@@ -75,16 +83,21 @@ defineProps({
 </style>
 <template>
   <div class="card__container">
-    <div class="row">
-      <div class="col-12 col-xl-6 card__img">
-        <img :src="subImg" alt="" />
+    <template v-for="(row, index) of contents">
+      <div
+        class="row d-flex pb-5"
+        :class="{ 'flex-row-reverse': index % 2 != 0 }"
+      >
+        <div class="col-12 col-xl-7 card__img">
+          <img :src="row.src" alt="" />
+        </div>
+        <div class="col-12 col-xl-5 card__text pl-5">
+          <h4>{{ row.title }}</h4>
+          <p style="white-space: pre-line">
+            {{ row.content }}
+          </p>
+        </div>
       </div>
-      <div class="col-12 col-xl-6 card__text">
-        <h4>{{ nameTitle }}</h4>
-        <p v-for="text in contentText" v-if="contentText.length !== 0">
-          {{ text }}
-        </p>
-      </div>
-    </div>
+    </template>
   </div>
 </template>
