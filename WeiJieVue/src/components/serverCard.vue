@@ -91,7 +91,7 @@ const contents = computed(() => {
         <div class="col-12 col-xl-7 card__img">
           <img :src="row.src" alt="" />
         </div>
-        <div class="col-12 col-xl-5 card__text pl-5">
+        <div class="col-12 col-xl-5 card__text pl-md-5">
           <h4>{{ row.title }}</h4>
           <p style="white-space: pre-line">
             {{ row.content }}
