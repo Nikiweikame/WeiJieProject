@@ -6,8 +6,8 @@ import { useCounterStore } from "@/stores/counter.js";
 const counterStore = useCounterStore();
 const pageTitleContnet = ref({
   name: "projectCase",
-  title: "工程案例",
-  subtitle: "整合與細膩，各項工程的實績",
+  title: "實體活動",
+  subtitle: "財商系列課程及會員產業分享活動",
 });
 
 const script = document.createElement("script");
