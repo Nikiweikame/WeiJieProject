@@ -58,7 +58,7 @@ defineProps({
 <template>
   <div class="titleBox">
     <div class="titleContent">
-      <h3>{{ title }}</h3>
+      <h3>{{ title || page.title }}</h3>
       <p v-if="page.subtitle !== undefined">{{ page.subtitle }}</p>
     </div>
   </div>
