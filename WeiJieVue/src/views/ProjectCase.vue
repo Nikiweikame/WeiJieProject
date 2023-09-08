@@ -76,16 +76,14 @@ onUnmounted(() => {
           class="pitem item-w1 item-h1 cat1 projectCase__img-group col-12 col-xl-6"
           v-for="(image, index) in counterStore.projectSampleArray"
         >
-          <a>
+          <RouterLink :to="'/projectCaseSample#' + index">
             <img class="" :src="image.imgUrl" :alt="image.name" />
             <div class="projectCase__little-content">
               <span class="projectCase__little-sub">
-                <RouterLink :to="'/projectCaseSample#' + index">
-                  {{ image.title }}
-                </RouterLink></span
-              >
+                {{ image.title }}
+              </span>
             </div>
-          </a>
+          </RouterLink>
         </div>
       </div>
     </div>

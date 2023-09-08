@@ -157,9 +157,8 @@ label {
         <input
           type="text"
           class="form-control"
-          placeholder="物件地址（必填）"
+          placeholder="物件地址"
           v-model="inputValue.address"
-          required
         />
       </div>
       <div class="form-group row">
