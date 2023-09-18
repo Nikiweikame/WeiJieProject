@@ -6,7 +6,7 @@ import { useCounterStore } from "@/stores/counter.js";
 const counterStore = useCounterStore();
 const pageTitleContnet = ref({
   name: "designCase",
-  title: "地產案件",
+  title: "課程專區",
   subtitle: "貼近人們需求，設計最理想的空間",
 });
 const script = document.createElement("script");

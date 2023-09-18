@@ -294,7 +294,7 @@ onMounted(() => {
                   'disable-link': counterStore.designSampleArray.length === 0,
                 }"
               >
-                地產案件
+                課程專區
               </RouterLink>
             </li>
             <li class="nav-item">
