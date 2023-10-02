@@ -7,7 +7,7 @@ const counterStore = useCounterStore();
 const pageTitleContnet = ref({
   name: "designCase",
   title: "課程專區",
-  subtitle: "貼近人們需求，設計最理想的空間",
+  subtitle: "學習之境，專屬於會員心靈；緊貼需求，共創學習之旅。",
 });
 const script = document.createElement("script");
 script.type = "text/javascript";
