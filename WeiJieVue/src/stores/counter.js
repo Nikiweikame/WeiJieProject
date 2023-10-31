@@ -400,7 +400,7 @@ export const useCounterStore = defineStore("counter", () => {
   const link = ref({
     FB: "https://www.facebook.com/profile.php?id=100086936292165",
     IG: "https://www.instagram.com/wjrealestate111/",
-    Line: "https://lin.ee/oo2iWUk",
+    Line: "https://lin.ee/766fdnK",
   });
   const IGDataArray = ref([]);
 
